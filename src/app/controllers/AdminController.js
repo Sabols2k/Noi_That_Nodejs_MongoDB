@@ -1,10 +1,9 @@
 require("dotenv").config();
 const Joi = require("joi");
-const validateRequest = require("../../_middleware/validate-request");
+
 
 const admins = require("../models/Admin");
 const products = require("../models/Product");
-const refreshToken = require("../models/refreshToken");
 const { mongooseToObject } = require("../../util/mongoose");
 const { mutipleMongooseToObject } = require("../../util/mongoose");
 
@@ -13,7 +12,6 @@ const bcrypt = require('bcryptjs');
 
 const crypto = require("crypto");
 
-const userService = require("./user.service")
 
 const posts = [
   {

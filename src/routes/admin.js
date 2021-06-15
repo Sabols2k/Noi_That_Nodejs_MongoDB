@@ -6,8 +6,7 @@ const adminController = require('../app/controllers/AdminController');
 //Authencation
 router.use('/login', adminController.login_UI);
 router.use('/login1', adminController.login);
-router.post('/authenticate', adminController.authenticateSchema, adminController.authenticate);
-router.post('/refresh-token',adminController.refreshToken);
+
 
 // router.get('/show', adminController.show);
 router.get('/create', adminController.create);

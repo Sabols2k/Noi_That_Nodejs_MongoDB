@@ -15,8 +15,6 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
 
-// const basicAuth = require('./_helpers/basic-auth');
-const errorHandler = require('./_helpers/error-handler');
 
 const port = 3000;
 
@@ -51,11 +49,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 db.connect();
 
 
-// use basic HTTP auth to secure the api
-// app.use(basicAuth);
 
-// global error handler
-app.use(errorHandler);
 
 
 axios.get('http://10.45.232.225/')
