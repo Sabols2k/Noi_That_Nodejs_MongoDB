@@ -188,66 +188,6 @@ class AdminController {
     // res.json(posts.filter(post => post.username === req.user.name))
   }
 
-  authenticateSchema(req, res, next) {
-    //Mới
-    // res.send(req.body);
-    const schema = Joi.object({
-      username: Joi.string().required(),
-      password: Joi.string().required(),
-    });
-    // res.send(schema);
-    validateRequest(req, next, schema);
-
-    //Cũ
-    // const username =  req.body.username
-    // console.log(username);
-    // const user = {name: username}
-
-    // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-    // res.json({ accessToken: accessToken})
-
-    // console.log(accessToken);
-  }
-  authenticate(req, res, next) {
-    // res.send(req.body);
-    const { username, password } = req.body;
-    const ipAddress = req.ip;
-    console.log(req.body);
-    userService
-      .authenticate({ username, password, ipAddress })
-      .then(({ refreshToken, ...user }) => {
-        // setTokenCookie(res, refreshToken);
-        const cookieOptions = {
-          httpOnly: true,
-          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        };
-        res.cookie("refreshToken", refreshToken, cookieOptions);
-        res.json(user);
-      })
-      .catch(next);
-  }
-
-  refreshToken(req, res, next) {
-    const token = req.cookies.refreshToken;
-    const ipAddress = req.ip;
-    userService
-      .refreshToken({ token, ipAddress })
-      .then(({ refreshToken, ...user }) => {
-      
-        setTokenCookie(res, refreshToken);
-        res.json(user);
-      })
-      .catch(next);
-  }
-
-  setTokenCookie(res, token) {
-    // create http only cookie with refresh token that expires in 7 days
-    const cookieOptions = {
-      httpOnly: true,
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-    };
-    res.cookie("refreshToken", token, cookieOptions);
-  }
 }
 
 module.exports = new AdminController();
