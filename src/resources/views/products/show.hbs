@@ -1,0 +1,27 @@
+<div class="mt-4">
+
+    <h3>Danh sách sản phẩm</h3>
+
+    <table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">product_id</th>
+      <th scope="col">name</th>
+      <th scope="col">type</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each products}}
+    <tr>
+      <th scope="row">{{sum @index 1}}</th>
+      <td>{{this.product_id}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.type}}</td>
+     
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+

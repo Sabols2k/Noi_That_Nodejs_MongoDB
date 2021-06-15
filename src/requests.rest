@@ -1,0 +1,14 @@
+# GET http://localhost:3000/admin/login1
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYyMzQyNDQyN30.yT6oFpOO_8EaXSoNKltFjlDaOoGVNFgmf0EhefE6I_Q
+
+GET http://localhost:3000/admin/abctest
+###
+POST http://localhost:3000/admin/authenticate
+Content-Type: application/json
+
+{
+    "username": "chaudd",
+    "password": "123456"
+}
+
+####
