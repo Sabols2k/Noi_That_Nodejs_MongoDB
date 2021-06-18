@@ -1,17 +1,11 @@
-require("dotenv").config();
-const Joi = require("joi");
-
-
 const admins = require("../models/Admin");
 const products = require("../models/Product");
 const { mongooseToObject } = require("../../util/mongoose");
 const { mutipleMongooseToObject } = require("../../util/mongoose");
+const bcrypt = require("bcryptjs");
 
-const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs');
 
 const crypto = require("crypto");
-
 
 const posts = [
   {
@@ -25,6 +19,9 @@ const posts = [
 ];
 
 class AdminController {
+  // checksession(req, res, next){
+
+  // }
   index(req, res, next) {
     // res.render('courses/create');
     //Xuất ra JSON API
@@ -35,7 +32,8 @@ class AdminController {
     //     res.status(400).json({error: "ERROR"});
     //   }
     // })
-
+    req.session.user1 = "abccccc";
+    console.log(req.session);
     products
       .find({})
       .then((product) =>
@@ -46,18 +44,11 @@ class AdminController {
       .catch(next);
   }
 
-  // show(req, res, next) {
-  //   admins.find({}, function (err, admin) {
-  //     if(!err) {
-  //       res.json(admin)
-  //     } else{
-  //       res.status(400).json({error: "ERROR"});
-  //     }
-  //   })
-  // }
-
   //[POST] /courses/create
   create(req, res, next) {
+    
+    // req.session.user2 = "abc1111cc";
+    console.log(req.session);
     res.render("products/create");
   }
 
@@ -67,7 +58,7 @@ class AdminController {
     // const data = req.body;
     // console.log(formData);
     // res.redirect(`/`);
-    const user = await admins.findOne({ "username":"chaudd" });
+    const user = await admins.findOne({ username: "chaudd" });
     // res.send("aa");
     console.log(user);
     // const data = {
@@ -77,11 +68,11 @@ class AdminController {
     //   "age":"21",
     //   "img":"aaaa",
     // };
-    //data của 
+    //data của
     const data = {
       user: user.id,
-      token: crypto.randomBytes(40).toString('hex'),
-      expires: new Date(Date.now() + 7*24*60*60*1000),
+      token: crypto.randomBytes(40).toString("hex"),
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       // createdByIp: ipAddress
     };
     // data.passwordHash=bcrypt.hashSync('123456', 10);
@@ -106,9 +97,9 @@ class AdminController {
       });
     // res.json(data);
   }
-//   randomTokenString() {
-//     return crypto.randomBytes(40).toString('hex');
-// }
+  //   randomTokenString() {
+  //     return crypto.randomBytes(40).toString('hex');
+  // }
   //[GET] /courses/:id/edit
   edit(req, res, next) {
     // res.send(req.params.id);
@@ -132,60 +123,14 @@ class AdminController {
 
     // res.send('New Detail!!!');
   }
- //[DELETE] /courses/:id
- destroy(req, res, next) {
-  res.json(req.body);
-    products.deleteOne({_id: req.params.id})
+  //[DELETE] /courses/:id
+  destroy(req, res, next) {
+    res.json(req.body);
+    products
+      .deleteOne({ _id: req.params.id })
       .then(() => res.redirect("back"))
       .catch(next);
   }
-  showuser(req, res, next) {
-    
- 
-
-    // req.session.views = (req.session.views || 0) + 1;
-
-    // req.session.username = "sabols2k";
-    // // Write response
-    // // res.send(req.session.views + ' views')
-    // res.send(req.session.username + "");
-
-
-    // await Adventure.findOne({ country: 'Croatia' }).exec();
-
-    // .then(device => res.json(device))
-    
-    //   // .then(devices => res.render('courses/edit', {
-    //   //   devices: mongooseToObject(devices)
-    //   // }))
-    //   .catch(next);
-    // res.send("happy")
-   
-    // console.log(user);
-  }
- 
-
-  //TODO: LOGIN VS REGISTER
-  login_UI(req, res, next) {
-    // res.send("this is page login");
-    res.render("admins/login");
-  }
-
-  login(req, res, next) {
-    // res.send("this is page login");
-    // res.render('admins/login')
-    // const authHeader = req.headers['authorization']
-    // const token = authHeader && authHeader.split(' ')[1]
-    // if (token == null) return res.sendStatus(401)
-    // jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    //   console.log(err)
-    //   if (err) return res.sendStatus(403)
-    //   req.user = user
-    //   next()
-    // })
-    // res.json(posts.filter(post => post.username === req.user.name))
-  }
-
 }
 
 module.exports = new AdminController();

@@ -1,0 +1,10 @@
+POST  http://localhost:3000/admin/auth
+Content-Type: application/json
+
+{
+    "username": "chaudd",
+    "password": "123456"
+}
+
+################################
+GET  http://localhost:3000/admin/test

@@ -1,7 +1,7 @@
 require('dotenv').config();
 // require('rootpath')();
-var cookieSession = require('cookie-session');
-
+// var cookieSession = require('cookie-session');
+var session = require('express-session');
 const express = require('express');
 const path = require('path');
 var methodOverride = require('method-override');
@@ -23,7 +23,7 @@ const db = require('./config/db'); //database mongodb
 
 const axios = require('axios');
 
-
+// var MongoStore = require('connect-mongo')(session);
 
 // enable CORS
 // enable CORS
@@ -32,10 +32,39 @@ app.use(cors({
   credentials: true // set credentials true for secure httpOnly cookie
 }));
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2']
-}))
+app.use(session({
+  secret: 'work hard',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {maxAge: 30 * 1000 * 60}
+  // store: new MongoStore({
+  //   mongooseConnection: db
+  // })
+}));
+
+app.use(function(req, res, next) {
+  // if(typeof  req.session.userId != "undefined"){
+  //   next();
+  // }
+  // else{
+  //   res.redirect("/admin/login");
+  //   // console.log("chauchau");
+  //   console.log(req.session);
+  //   console.log("aaaaa111")
+  // console.log("a"+req.session.userId);
+  // }
+  // next();
+  if(req.session.userId){
+    console.log("yes");
+
+  }
+  else{
+    console.log("no");
+  }
+  console.log(req)
+  next();
+  
+})
 
 // parse application/json
 app.use(bodyParser.json());
@@ -47,19 +76,6 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //Connect to DB
 
 db.connect();
-
-
-
-
-
-axios.get('http://10.45.232.225/')
-  .then(response => {
-    console.log(response.data);
-    // console.log(response.data.explanation);
-  })
-  .catch(error => {
-    console.log(error);
-  });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -89,18 +105,18 @@ app.engine(
   
 );
 
-function intervalFunc() {
-  axios.get('http://localhost:3000/api')
-  .then(response => {
-    console.log(response.data);
-    // console.log(response.data.explanation);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
+// function intervalFunc() {
+//   axios.get('http://localhost:3000/api')
+//   .then(response => {
+//     console.log(response.data);
+//     // console.log(response.data.explanation);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+// }
 
-// setInterval(intervalFunc, 2000);
+// // setInterval(intervalFunc, 2000);
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources','views')); // chỉnh sửa thư mục Views để render như ý muốn của mình
