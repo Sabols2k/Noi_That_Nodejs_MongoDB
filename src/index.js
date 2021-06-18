@@ -54,7 +54,7 @@ app.use(function(req, res, next) {
   // console.log("a"+req.session.userId);
   // }
   // next();
-  if(req.session.userId){
+  if(req.session.user){
     console.log("yes");
 
   }

@@ -11,9 +11,13 @@ const crypto = require("crypto");
 
 class AdminLoginController {
   
-  index(req, res, next) {
+    async index(req, res, next) {
     // res.send("this is page login");
-    if (req.session.userId) {
+    const user = await admins.findOne({ "username": "chaudd" })
+    req.session.loggedIn = true
+    req.session.user = user
+
+    if (req.session.user) {
         // res.render("products/stored-products");
         res.redirect("/admin");
       } else {
@@ -24,14 +28,14 @@ class AdminLoginController {
   // }
   async login(req, res, next) {
     try {
-        console.log(req.body)
+        // console.log(req.body.user)
         const user = await admins.findOne({ username: req.body.username  })
         // console.log(user);
         if (!user || !bcrypt.compareSync(req.body.password, user.passwordHash)) {
           res.send({ status: false, msg: 'Login failed1 :(' })
         } else {
             req.session.loggedIn = true
-            req.session.userId = user.id
+            req.session.userId = user._id
             res.send({ status: true })
         }
     } catch (err) {
