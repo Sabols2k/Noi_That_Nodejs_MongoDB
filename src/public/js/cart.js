@@ -24,7 +24,7 @@ function renderCart(items) {
             <tr class="cart-items">
                 <th scope="row">
                     <div class="image">
-                        <img src="./assets/img/All-products/${item.img}.jpg" alt="" width="150" height="auto">
+                        <img src="../img/All-products/${item.img}.jpg" alt="" width="150" height="auto">
                     </div>
                 </th>
                 <td>
@@ -56,7 +56,7 @@ function renderCart(items) {
     <div class="d-flex justify-content-between mb-4 cart-mobile">
         <div class="d-flex product-block-mobile">
             <div class="image">
-                <img src="./assets/img/All-products/${item.img}.jpg" alt="" width="80" height="auto">
+                <img src="../img/All-products/${item.img}.jpg" alt="" width="80" height="auto">
             </div>
             <div class="product-info">
                 <div class="name">
@@ -96,7 +96,7 @@ function renderCartModal(items) {
         <div class="item-popup">
             <div style="width: 55%" class="text-left">
                 <div class="item-image">
-                    <img src="./assets/img/All-products/${item.img}.jpg" alt="" width="80">
+                    <img src="../img/All-products/${item.img}.jpg" alt="" width="80">
                 </div>
                 <div class="item-info">
                     <p class="item-name">${item.name}</p>

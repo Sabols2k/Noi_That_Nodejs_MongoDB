@@ -21,7 +21,7 @@ function renderProducts(products) {
             <div class="evo-product-block-item">
                 <div class="product-img">
                     <a href="">
-                        <img class="img-prd" src="./assets/img/All-products/${product.img}.jpg" alt="">
+                        <img class="img-prd" src="../img/All-products/${product.img}.jpg" alt="">
                     </a>
                 </div>
                 <div class="button-add">
