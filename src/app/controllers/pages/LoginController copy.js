@@ -1,3 +1,4 @@
+
 const admins = require("../../models/Admin");
 const products = require("../../models/Product");
 const {
@@ -8,7 +9,7 @@ const bcrypt = require("bcryptjs");
 
 const crypto = require("crypto");
 
-class AdminLoginController {
+class LoginController {
 
   async index(req, res, next) {
     console.log(req.session)
@@ -59,6 +60,6 @@ class AdminLoginController {
   }
 }
 
-module.exports = new AdminLoginController();
+module.exports = new LoginController();
 
 // const courseController = require('./CourseController');

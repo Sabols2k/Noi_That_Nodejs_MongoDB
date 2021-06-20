@@ -1,3 +1,10 @@
+<script src="handlebars.js"></script>
+<script>
+  var handlebars = require('handlebars');
+  handlebars.registerHelper("setvar", function(varName, varValue, options) {
+    options.data.root[varName] = varValue;
+  });
+</script>
 <div class="mt-4">
 
     <h3>Danh sách sản phẩm</h3>
@@ -23,5 +30,94 @@
     {{/each}}
   </tbody>
 </table>
+
+
+
+
+
+<div class="row">
+  {{#if (ifcond pages ">" 0)}}
+    <nav class="mx-auto" aria-label="...">
+      <ul class="pagination" style="margin-top: 2rem;">
+ <!-- FIRST ITEM -->
+        {{#if (ifcond current "==" 1)}}
+              <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          {{else}}
+              <li class="page-item">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          {{/if}}
+
+<!--  ITEMS -->
+        {{!-- {{#if (ifcond current ">" 3)}}
+            {{ setvar temp  (calc current "-" 2 )}}
+        {{else}}
+          {{ setvar temp  1}}
+        {{/if}}
+
+        {{setvar i temp }} --}}
+ 
+     {{#if (ifcond current "==" 1)}}
+     <li class="page-item active"><a class="page-link" href="1">1</a></li>
+     {{else}}
+    <li class="page-item"><a class="page-link" href="1">1</a></li>
+    {{/if}}
+    {{#if (ifcond current "==" 2)}}
+     <li class="page-item active"><a class="page-link" href="2">2</a></li>
+     {{else}}
+    <li class="page-item"><a class="page-link" href="2">2</a></li>
+    {{/if}}
+    {{#if (ifcond current "==" 3)}}
+     <li class="page-item active"><a class="page-link" href="3">3</a></li>
+     {{else}}
+    <li class="page-item"><a class="page-link" href="3">3</a></li>
+    {{/if}}
+
+
+        
+        {{!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li> --}}
+
+<!-- LAST ITEM -->
+      {{#if (ifcond current "==" pages)}}
+          <li class="page-item disabled">
+            <a class="page-link" Fhref="#">Next</a>
+          </li>
+      {{else}}
+          <li class="page-item">
+            <a class="page-link" Fhref="#">Next</a>
+          </li>
+     {{/if}}
+      </ul> 
+    </nav>
+  {{/if}}
+</div>
+{{!-- 
+{{#if (ifcond current "==" 1)}}
+
+  <h1>aaa</h1>
+  {{else}}
+  <h1>aaa11</h1>
+{{/if}} --}}
+
+{{!-- {{ setvar a  (calc 10 "-" current )}} --}}
+{{!-- {{a}} --}}
+
+{{!-- {{#if (ifcond current ">" 3)}}
+    {{ setvar temp  (calc current "-" 2 )}}
+{{else}}
+   {{ setvar temp  1}}
+{{/if}}
+--}}
+{{setvar temp  10}}
+{{temp}} 
+
+{{!-- <h1>111</h1> --}}
+
 </div>
 

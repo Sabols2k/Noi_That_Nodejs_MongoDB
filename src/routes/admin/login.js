@@ -5,12 +5,9 @@ const router = express.Router();
 const adminController = require('../../app/controllers/admin/AdminLoginController');
 
 //Authencation
-router.post('/auth', adminController.login);
+router.post('/', adminController.login);
 router.get('/logout', adminController.logout);
 router.get('/', adminController.index);
-
-
-
 
 module.exports = router;
 

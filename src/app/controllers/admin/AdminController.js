@@ -32,7 +32,8 @@ class AdminController {
     //     res.status(400).json({error: "ERROR"});
     //   }
     // })
-    req.session.user1 = "abccccc";
+    console.log(req.session)
+    // req.session.user1 = "abccccc";
     console.log(req.session);
     products
       .find({})
@@ -130,6 +131,20 @@ class AdminController {
       .deleteOne({ _id: req.params.id })
       .then(() => res.redirect("back"))
       .catch(next);
+  }
+  page(req, res, next){
+    let perPage = 2;
+    let page = req.params.page || 1; 
+    admins
+    .find() // find tất cả các data
+    .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+    .limit(perPage)
+    .exec((err, products) => {
+      admins.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+        if (err) return next(err);
+         res.send(products) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+      });
+    });
   }
 }
 

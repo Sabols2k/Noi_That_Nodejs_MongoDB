@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 mongoose.plugin(slug);
 
-const admin = new Schema({
+const user = new Schema({
     username: {type: 'String', required: true,unique: true, default: '12'},
     password: {type: 'String', maxLength: 255},
     passwordHash: {type: 'String', maxLength: 255},
@@ -13,6 +13,7 @@ const admin = new Schema({
     name: {type: 'String', maxLength: 255},
     age: {type: 'String', maxLength: 255},
     img: {type: 'String', maxLength: 255},
+    
 
     slug: {type: 'String', slug: 'username', },
 },{
@@ -20,7 +21,7 @@ const admin = new Schema({
 });
 // unique: true : ở slug thì unique có tác dụng thêm chữ phía sau slug nếu slug đã bị trùng lặp
 
-module.exports = mongoose.model('admin',admin);
+module.exports = mongoose.model('user',user);
 
 // const Course = new Schema({
 //     name: {type: 'String', required: true},
