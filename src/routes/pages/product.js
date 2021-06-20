@@ -4,8 +4,9 @@ const router = express.Router();
 const productController = require("../../app/controllers/pages/ProductController");
 
 router.get("/test/:page", productController.page);
-router.get("/upload", productController.upload);
-router.post("/uploadfile", productController.uploadfile);
+router.get("/testview", productController.test);
+// router.get("/upload", productController.upload);test
+// router.post("/uploadfile", productController.uploadfile);
 
 router.get("/show", productController.show);
 router.get("/create", productController.create);

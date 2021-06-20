@@ -139,6 +139,9 @@ class ProductController {
   uploadfile(req, res, next){
 
   }
+  test(req, res, next){
+    res.render('products/all-sanpham');
+  }
 }
 
 module.exports = new ProductController();

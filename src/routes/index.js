@@ -1,12 +1,20 @@
+
+var session = require("express-session");
+const multer = require("multer");
+
+//admin
 const meRouter = require("./me");
 const adminRouter = require("./admin/admin");
 const adminloginRouter = require("./admin/login");
 const adminlogoutRouter = require("./admin/logout");
 
+//pages
 const productRouter = require("./pages/product");
+const uploadRouter = require("./pages/upload");
+const uploadfileRouter = require("./pages/uploadfile");
 
-var session = require("express-session");
-const multer = require("multer");
+
+
 
 function route(app) {
   app.use(
@@ -20,17 +28,21 @@ function route(app) {
       // })
     })
   );
-  //user
-  app.use("/product", productRouter);
-  app.use("/login",checkNotLoggedIn, adminloginRouter);
-  app.use("/logout", adminlogoutRouter);
 
   //admin
   app.use("/admin", checkLoggedInAdmin, adminRouter);// /admin/{xxx}
   app.use("/adminlogin",checkNotLoggedInAdmin, adminloginRouter);
   app.use("/adminlogout", adminlogoutRouter);
   app.use("/me", meRouter);
-  app.use("/", productRouter);
+
+    //user
+    app.use("/product", productRouter);
+    app.use("/upload", uploadRouter);
+    app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
+    app.use("/login",checkNotLoggedIn, adminloginRouter);
+    app.use("/logout", adminlogoutRouter);
+    app.use("/", productRouter);
+  
 }
 const checkLoggedInAdmin = (req, res, next) => {
   if (req.session.adminloggedIn) {
@@ -86,12 +98,13 @@ const checkNotLoggedIn = (req, res, next) => {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads");
+    cb(null, 'uploads')
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now());
-  },
-});
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+ 
+var upload = multer({ storage: storage })
 
-var upload = multer({ storage: storage });
 module.exports = route;
