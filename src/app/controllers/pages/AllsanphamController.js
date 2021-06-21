@@ -2,7 +2,7 @@ const products = require('../../models/Product');
 const {mongooseToObject} = require('../../../util/mongoose');
 const {mutipleMongooseToObject} = require('../../../util/mongoose');
 
-class ProductController {
+class AllsanphamController {
 
   index(req, res, next) {
     // res.render('products/create');
@@ -36,6 +36,9 @@ class ProductController {
 
   allsp(req, res, next){
     res.render('all-sanpham')
+  }
+  notfoud(req, res, next){
+    res.send(404);
   }
   //[GET] /courses/:slug
   show(req, res, next) {
@@ -144,32 +147,8 @@ class ProductController {
 
   }
 
-  introduce(req, res, next){
-    res.render('gioi-thieu');
-  }
-
-  product(req, res, next){
-    res.render('all-sanpham');
-  }
-
-  contact(req, res, next){
-    res.render('lien-he');
-  }
-
-  login(req, res, next){
-    res.render('login');
-  }
-
-  register(req, res, next){
-    res.render('register');
-  }
-
-  cart(req, res, next){
-    res.render('cart');
-  }
-
 }
 
-module.exports = new ProductController();
+module.exports = new AllsanphamController();
 
 // const courseController = require('./CourseController');

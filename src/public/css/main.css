@@ -2594,3 +2594,41 @@ textarea.form-control {
 #payment .content .sidebar .order-summary-section .field-input-wrapper .btn-checkout {
   padding: 0.9em 2.2em;
   font-size: 1.4rem; }
+
+
+  /* ==== [404-NOT-FOUND-PAGE] ===== */
+.page-404 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.page-404 h1 {
+  font-size: 3.4rem;
+  font-weight: normal;
+  color: var(--text-color-black);
+  margin-bottom: 10px;
+}
+
+.page-404 .land {
+  color: #888;
+  font-size: 1.4rem;
+}
+
+.page-404 .btn-go-home {
+  margin-top: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px 18px;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border-radius: 3px;
+}
+
+.page-404 .btn-go-home:hover {
+  background-color: #f58116;
+}

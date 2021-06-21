@@ -12,6 +12,7 @@ const adminlogoutRouter = require("./admin/logout");
 const loginRouter = require("./pages/login");
 const logoutRouter = require("./pages/logout");
 const registerRouter = require("./pages/register");
+const allsanphamRouter = require("./pages/allsanpham");
 const productRouter = require("./pages/product");
 const uploadRouter = require("./pages/upload");
 const uploadfileRouter = require("./pages/uploadfile");
@@ -19,6 +20,7 @@ const homeRouter = require("./pages/home");
 const gioithieuRouter = require("./pages/gioithieu");
 const lienheuRouter = require("./pages/lienhe");
 const cartRouter = require("./pages/cart");
+const checkoutRouter = require("./pages/checkout");
 
 
 
@@ -47,8 +49,9 @@ function route(app) {
     app.use("/gioi-thieu", gioithieuRouter);
     app.use("/lien-he", lienheuRouter);
     app.use("/cart", cartRouter);
-
+    app.use("/checkout", checkoutRouter);
     app.use("/product", productRouter);
+    app.use("/all-sanpham", allsanphamRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
     app.use("/login",checkNotLoggedIn, loginRouter);
