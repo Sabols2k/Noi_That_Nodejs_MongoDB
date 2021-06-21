@@ -9,13 +9,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 evo-account">
                         <ul>
                             <li>
-                                <a href="/login">
+                                <a href="login">
                                     <i class="fas fa-sign-in-alt"></i>
                                     Đăng nhập
                                 </a>
                             </li>
                             <li>
-                                <a href="/register">
+                                <a href="register">
                                     <i class="fas fa-user-plus"></i>
                                     Đăng kí
                                 </a>
@@ -38,7 +38,7 @@
                     <a href="/" class="logo">
                         <img src="../img/logo.png" alt="evo_logo">
                     </a>
-                    <a class="evo-cart mini-cart d-none" href="/cart">
+                    <a class="evo-cart mini-cart d-none" href="cart">
                         <i class="fas fa-cart-plus"></i>
                         <span class="count_item mobile">0</span>
                     </a>
@@ -69,7 +69,7 @@
                         </a>
                     </div>
                     <div class="evo-cart mini-cart">
-                        <a href="/cart">
+                        <a href="cart">
                             <i class="fas fa-cart-plus"></i>
                             <span class="count_item desktop">0</span>
                         </a>
@@ -82,7 +82,7 @@
                 <div class="row">
                     <div class="col-md-3 col-lg-3">
                          <!--- MENU LEFT -->
-                        <div class="main-menu">
+                        <div id="intro-page" class="main-menu">
                             <span>
                                 <i class="fas fa-bars"></i>
                                 Tất cả sản phẩm
@@ -241,13 +241,13 @@
                                     <a href="" class="nav-link">Tin tức</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/lien-he" class="nav-link">Liên hệ</a>
+                                    <a href="lien-he" class="nav-link">Liên hệ</a>
                                 </li>
                             </ul>
                         </nav>
-                        <div class="banner">
+                        {{!-- <div class="banner">
                             <img src="../img/banner.jpg" class="d-block w-100" alt="banner.jpg">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- NAV INPUT CHECK -->
@@ -263,8 +263,8 @@
                         <img src="../img/logo.png" alt="">
                     </div>
                     <div class="account-mobile">
-                        <a href="/login">Đăng nhập</a>
-                        <a href="/register">Đăng ký</a>
+                        <a href="login">Đăng nhập</a>
+                        <a href="register">Đăng ký</a>
                     </div>
                     <div class="main-menu-mobile">
                         <div class="nav-cate">
@@ -294,13 +294,13 @@
                                     </a>
                                 </li>
                                 <li class="menu-item-count">
-                                    <a href="/">
+                                    <a href="">
                                         <i class="fas fa-angle-right"></i>
                                         Tin tức
                                     </a>
                                 </li>
                                 <li class="menu-item-count">
-                                    <a href="/lien-he">
+                                    <a href="lien-he">
                                         <i class="fas fa-angle-right"></i>
                                         Liên hệ
                                     </a>
@@ -312,3 +312,14 @@
             </div>
         </div>
     </header>
+    <!-- ========== SECTION-BREAD-CRUMP ========== -->
+    <section class="bread-crump">
+        <div class="container">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{page}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>

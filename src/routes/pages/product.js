@@ -4,8 +4,6 @@ const router = express.Router();
 const productController = require("../../app/controllers/pages/ProductController");
 
 router.get("/test/:page", productController.page);
-router.get("/testview", productController.test);
-router.get("/testview1", productController.card);
 // router.get("/upload", productController.upload);test
 // router.post("/uploadfile", productController.uploadfile);allsp
 

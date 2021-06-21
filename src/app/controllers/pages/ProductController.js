@@ -143,13 +143,30 @@ class ProductController {
   uploadfile(req, res, next){
 
   }
-  test(req, res, next){
-    res.render('products/all-sanpham');
+
+  introduce(req, res, next){
+    res.render('gioi-thieu');
   }
-  card(req, res, next){
+
+  product(req, res, next){
     res.render('all-sanpham');
   }
 
+  contact(req, res, next){
+    res.render('lien-he');
+  }
+
+  login(req, res, next){
+    res.render('login');
+  }
+
+  register(req, res, next){
+    res.render('register');
+  }
+
+  cart(req, res, next){
+    res.render('cart');
+  }
 
 }
 
