@@ -35,7 +35,16 @@ class AllsanphamController {
   }
 
   allsp(req, res, next){
-    res.render('all-sanpham')
+    products
+      .find({})
+      .then((product) =>
+        res.render("all-sanpham", {
+          products: mutipleMongooseToObject(product),
+        })
+      )
+      .catch(next);
+  
+    // res.render('all-sanpham')
   }
   notfoud(req, res, next){
     res.send(404);

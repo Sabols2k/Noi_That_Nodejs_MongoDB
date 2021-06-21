@@ -146,6 +146,10 @@ class AdminController {
       });
     });
   }
+
+  test(req, res, next){
+    res.render('admins/show')
+  }
 }
 
 module.exports = new AdminController();

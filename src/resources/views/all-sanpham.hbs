@@ -9,6 +9,7 @@
                         <img src="../img/All-products/cat-banner-1.jpg" alt="">
                     </div>
                     <div class="owl-carousel owl-category owl-theme">
+
                         <div class="category-item">
                             <a href="">
                                 <div class="category-item-image">
@@ -17,6 +18,7 @@
                                 </div>
                             </a>
                         </div>
+                        
                         <div class="category-item">
                             <a href="">
                                 <div class="category-item-image">
@@ -370,7 +372,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                         <div class="evo-product-block-item">
                             <div class="product-img">
-                                <a href="./detail-sanpham.html">
+                                <a href="/detail-sanpham/${product._id}">
                                     <img class="img-prd" src="../img/All-products/${product.img}.jpg" alt="">
                                 </a>
                             </div>
@@ -389,7 +391,7 @@
                                     <a href="">Evo Nội Thất</a>
                                 </div>
                                 <h3>
-                                    <a href="" class="pro-name">${product.name}</a>
+                                    <a href="./detail-sanpham/${product._id}" class="pro-name">${product.name}</a>
                                 </h3>
                                 <p class="pro-price">${format(product.price)}</p>
                             </div>

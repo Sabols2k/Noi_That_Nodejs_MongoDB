@@ -10,7 +10,7 @@
                                 <div class="sku-product">
                                     <div class="item-ku">
                                         SKU:
-                                        <span class="variant-sku">1096637</span>
+                                        <span class="variant-sku">{{product._id}}</span>
                                     </div>
                                     <div class="item-ku">
                                         Thương hiệu:
@@ -24,10 +24,10 @@
                                 <div class="col-md-6">
                                     <div class="slider-img-product">
                                         <div class="mySlides">
-                                            <img src="../img/All-products/giuong-ngu-go.jpg" style="width:100%">
+                                            <img src="../img/All-products/{{product.img}}.jpg" style="width:100%">
                                         </div>
                                         <div class="mySlides">
-                                            <img src="../img/All-products/tu-bep-gia-dinh.jpg" style="width:100%">
+                                            <img src="../img/All-products/{{product.img}}.jpg" style="width:100%">
                                         </div>
                                       
                                         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -35,10 +35,10 @@
                                       
                                         <div class="thumb">
                                             <div class="thumb-item">
-                                                <img class="demo" src="../img/All-products/giuong-ngu-go.jpg" style="width:100%" onclick="currentSlide(1)">
+                                                <img class="demo" src="../img/All-products/{{product.img}}.jpg" style="width:100%" onclick="currentSlide(1)">
                                             </div>
                                             <div class="thumb-item">
-                                                <img class="demo" src="../img/All-products/tu-bep-gia-dinh.jpg" style="width:100%" onclick="currentSlide(2)">
+                                                <img class="demo" src="../img/All-products/{{product.img}}.jpg" style="width:100%" onclick="currentSlide(2)">
                                             </div>
                                         </div>
                                     </div>
@@ -48,16 +48,10 @@
                                         <div class="price-box">
                                             <div>
                                                 <!-- Current price -->
-                                                <span class="product-price">1.290.000₫ </span>
-                                                <!-- Old price -->
-                                                <span class="old-price">
-                                                    <del class="product-price-old">1.540.000₫</del>
-                                                </span>
+                                                <span class="product-price">{{product.price}}₫ </span>
+                                                
                                             </div>
-                                            <span class="save-price">
-                                                Tiết kiệm:
-                                                <span class="product-price-save">250.000₫</span>
-                                            </span>
+                                           
                                         </div>
                                         <div class="inventory-quantily">
                                             <span class="stock-brand-title">Tình trạng:</span>
@@ -83,8 +77,8 @@
                                                     data-bs-toggle="modal" data-bs-target="#cartModal"
                                                     onClick="cartLS.add({id: 1, name: 'Giường ngủ gỗ chất lượng cao cho gia đình', img:'giuong-ngu-go', price: 130})">
                                                 <span>
-                                                    Mua ngay với giá 
-                                                    <b class="product-price">300.000₫</b>
+                                                    Mua ngay 
+                                                    <b class="product-price">{{product.price}}₫</b>
                                                 </span>
                                                 <span class="txt-add">Đặt mua giao hàng tận nơi</span>
                                             </button>
