@@ -1,7 +1,9 @@
 const products = require('../../models/Product');
+const users = require('../../models/User');
 const {mongooseToObject} = require('../../../util/mongoose');
 const {mutipleMongooseToObject} = require('../../../util/mongoose');
-
+const crypto = require("crypto");
+const bcrypt = require("bcryptjs");
 class ProductController {
 
   index(req, res, next) {
@@ -68,6 +70,43 @@ class ProductController {
   
     const product = new products(data);
      
+    // product.save(function (err) {
+    //   console.log(err);
+    // }).then(() => res.redirect(`/`));
+
+    // res.redirect('http://localhost:3001/zestreact/app/product/dashboard')
+
+    product.save()
+    .then(item => 
+    { 
+      res.redirect('show')
+      // res.send("item saved to database");
+    })
+
+    .catch(error =>{
+      res.status(400).send("unable to save to database");
+    });
+    // res.json(data);
+    
+      
+     
+  }
+  storeuser(req, res, next) {
+    // const data = req.body;
+    // console.log(formData);
+    // res.redirect(`/`);
+    const data = {
+      "username":"sabols2k",
+      "email":"dangducchau2000@gmail.com",
+      "password":"123456",
+      "name":"chaudd",
+      "age":"21",
+      "img":"aaaa",
+      "role":"user"
+    };
+    data.passwordHash=bcrypt.hashSync('123456', 10);
+    const product = new users(data);
+     console.log(product);
     // product.save(function (err) {
     //   console.log(err);
     // }).then(() => res.redirect(`/`));

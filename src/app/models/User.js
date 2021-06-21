@@ -6,15 +6,16 @@ const Schema = mongoose.Schema;
 mongoose.plugin(slug);
 
 const user = new Schema({
-    username: {type: 'String', required: true,unique: true, default: '12'},
+    email: {type: 'String', required: true,unique: true, default: '12'},
+    username: {type: 'String',unique: true,},
     password: {type: 'String', maxLength: 255},
     passwordHash: {type: 'String', maxLength: 255},
+    phoneNumber: {type: 'String', maxLength: 255},
     role:{type: 'String', maxLength: 255},
-    name: {type: 'String', maxLength: 255},
+    firstname: {type: 'String', maxLength: 255},
+    lastname: {type: 'String', maxLength: 255},
     age: {type: 'String', maxLength: 255},
     img: {type: 'String', maxLength: 255},
-    
-
     slug: {type: 'String', slug: 'username', },
 },{
     timestamps: true,

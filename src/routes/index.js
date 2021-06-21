@@ -54,7 +54,7 @@ function route(app) {
     app.use("/all-sanpham", allsanphamRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
-    app.use("/login",checkNotLoggedIn, loginRouter);
+    app.use("/login", checkNotLoggedIn, loginRouter);
     app.use("/logout", logoutRouter);
     app.use("/register", registerRouter);
     app.use("/home", homeRouter);

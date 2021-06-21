@@ -1,4 +1,5 @@
 const admins = require("../../models/Admin");
+const users = require("../../models/User");
 const products = require("../../models/Product");
 const {
   mongooseToObject,
@@ -16,30 +17,42 @@ class RegisterController {
   }
 
   // }
-  async register(req, res, next) {
-    // console.log(req.session)
-    try {
-      console.log(req.body)
-      var user = await admins.findOne({ username: req.body.username });
-      // user = mongooseToObject(user)
-      console.log(user)
-      console.log(req.body)
-      console.log(user.password === req.body.password)
+  register(req, res, next) {
+    const data = req.body;
+    console.log(data);
+    // res.redirect(`/`);
+    // const data = {
+    //   "username":"sabols2k",
+    //   "email":"dangducchau2000@gmail.com",
+    //   "password":"123456",
+    //   "name":"chaudd",
+    //   "age":"21",
+    //   "img":"aaaa",
+    //   "role":"user"
+    // };
+    data.passwordHash=bcrypt.hashSync(data.password, 10);
+    const user = new users(data);
+     console.log(user);
+    // product.save(function (err) {
+    //   console.log(err);
+    // }).then(() => res.redirect(`/`));
 
-      if (!user || req.body.password != user.password) {
-        res.send({ status: false, msg: "Login failed1 :(" })
-      } else {
-        req.session.adminloggedIn = true;
-        req.session.adminId = user._id;
-        res.redirect('/admin')
+    // res.redirect('http://localhost:3001/zestreact/app/product/dashboard')
 
-        console.log(req.session)
-      }
-    } catch (err) {
-      res.send({ status: false, msg: "Login failed2 :(" });
-      console.log(err);
-      next();
-    }
+    user.save()
+    .then(item => 
+    { 
+      res.redirect('/login')
+      // res.send("item saved to database");
+    })
+
+    .catch(error =>{
+      res.status(400).send("unable to save to database");
+    });
+    // res.json(data);
+    
+      
+     
   }
 
 }

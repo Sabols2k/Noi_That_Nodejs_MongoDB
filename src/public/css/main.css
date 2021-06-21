@@ -2595,16 +2595,25 @@ textarea.form-control {
   padding: 0.9em 2.2em;
   font-size: 1.4rem; }
 
+/* ==== [404-NOT-FOUND-PAGE] ===== */
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-  /* ==== [404-NOT-FOUND-PAGE] ===== */
+.page-404 .image-404 img {
+  max-width: 100%;
+  height: auto;
+}
+
 .page-404 {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
 .page-404 h1 {
-  font-size: 3.4rem;
-  font-weight: normal;
+  font-size: 2.8rem;
   color: var(--text-color-black);
   margin-bottom: 10px;
 }
