@@ -9,10 +9,16 @@ const adminloginRouter = require("./admin/login");
 const adminlogoutRouter = require("./admin/logout");
 
 //pages
+const loginRouter = require("./pages/login");
+const logoutRouter = require("./pages/logout");
+const registerRouter = require("./pages/register");
 const productRouter = require("./pages/product");
 const uploadRouter = require("./pages/upload");
 const uploadfileRouter = require("./pages/uploadfile");
-
+const homeRouter = require("./pages/home");
+const gioithieuRouter = require("./pages/gioithieu");
+const lienheuRouter = require("./pages/lienhe");
+const cartRouter = require("./pages/cart");
 
 
 
@@ -30,18 +36,26 @@ function route(app) {
   );
 
   //admin
-  app.use("/admin", checkLoggedInAdmin, adminRouter);// /admin/{xxx}
   app.use("/adminlogin",checkNotLoggedInAdmin, adminloginRouter);
   app.use("/adminlogout", adminlogoutRouter);
-  app.use("/me", meRouter);
+  app.use("/admin", checkLoggedInAdmin, adminRouter);
 
-    //user
+    //pages
+    app.get('/', (req, res) => {
+      res.redirect('/home')
+    })
+    app.use("/gioi-thieu", gioithieuRouter);
+    app.use("/lien-he", lienheuRouter);
+    app.use("/cart", cartRouter);
+
     app.use("/product", productRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
-    app.use("/login",checkNotLoggedIn, adminloginRouter);
-    app.use("/logout", adminlogoutRouter);
-    app.use("/", productRouter);
+    app.use("/login",checkNotLoggedIn, loginRouter);
+    app.use("/logout", logoutRouter);
+    app.use("/register", registerRouter);
+    app.use("/home", homeRouter);
+    // app.use("/", homeRouter);
   
 }
 const checkLoggedInAdmin = (req, res, next) => {

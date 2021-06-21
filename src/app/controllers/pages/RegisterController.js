@@ -1,4 +1,3 @@
-
 const admins = require("../../models/Admin");
 const products = require("../../models/Product");
 const {
@@ -9,16 +8,15 @@ const bcrypt = require("bcryptjs");
 
 const crypto = require("crypto");
 
-class LoginController {
+class RegisterController {
 
-  async index(req, res, next) {
-    console.log(req.session)
-    const user = await admins.findOne({ username: "chaudd" });
-    res.render("admins/login");
+  index(req, res, next) {
+    
+    res.render("register");
   }
 
   // }
-  async login(req, res, next) {
+  async register(req, res, next) {
     // console.log(req.session)
     try {
       console.log(req.body)
@@ -44,22 +42,8 @@ class LoginController {
     }
   }
 
-  logout(req, res, next) {
-    console.log("logout");
-    console.log(req.session);
-    if (req.session) {
-      // delete session object
-      req.session.destroy(function (err) {
-        if (err) {
-          return next(err);
-        } else {
-          return res.redirect("/");
-        }
-      });
-    }
-  }
 }
 
-module.exports = new LoginController();
+module.exports = new RegisterController();
 
 // const courseController = require('./CourseController');

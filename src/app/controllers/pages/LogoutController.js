@@ -9,26 +9,15 @@ const crypto = require("crypto");
 
 
 
-class AdminLogoutController {
+class LogoutController {
   
   index(req, res, next) {
-    
-    // if (req.session) {
-      // delete session object
-      // req.session.destroy(function (err) {
-      //   if (err) {
-      //     return next(err);
-      //   } else {
-      //     return res.redirect("/");
-      //   }
-      // });
-    // }
     req.session.loggedIn = false
     res.redirect("/")
   }
 
 }
 
-module.exports = new AdminLogoutController();
+module.exports = new LogoutController();
 
 // const courseController = require('./CourseController');

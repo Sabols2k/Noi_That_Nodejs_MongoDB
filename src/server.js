@@ -14,46 +14,19 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
-const port = 3000;
+const port = 4000;
 
 const route = require("./routes");
 const db = require("./config/db"); //database mongodb
 
 const axios = require("axios");
 
-// var MongoStore = require('connect-mongo')(session);
-
-// enable CORS
-// enable CORS
 app.use(
   cors({
     origin: "http://localhost:3000", // url of the frontend application
     credentials: true, // set credentials true for secure httpOnly cookie
   })
 );
-
-
-
-app.use(function (req, res, next) {
-  // if(typeof  req.session.userId != "undefined"){
-  //   next();
-  // }
-  // else{
-  //   res.redirect("/admin/login");
-  //   // console.log("chauchau");
-  //   console.log(req.session);
-  //   console.log("aaaaa111")
-  // console.log("a"+req.session.userId);
-  // }
-  // next();
-  // if (req.session.user) {
-  //   console.log("yes");
-  // } else {
-  //   console.log("no");
-  // }
-  // console.log(req)
-  next();
-});
 
 // parse application/json
 app.use(bodyParser.json());
@@ -146,23 +119,10 @@ app.engine(
   })
 );
 
-// function intervalFunc() {
-//   axios.get('http://localhost:3000/api')
-//   .then(response => {
-//     console.log(response.data);
-//     // console.log(response.data.explanation);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// }
-
-// // setInterval(intervalFunc, 2000);
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views")); // chỉnh sửa thư mục Views để render như ý muốn của mình
-// app.set('views', path.join(__dirname, 'resources','views'));
-//route init
+
 route(app);
 
 app.listen(port, () => {

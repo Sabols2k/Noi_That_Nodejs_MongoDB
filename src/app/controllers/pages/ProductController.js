@@ -33,6 +33,10 @@ class ProductController {
       });
     });
   }
+
+  allsp(req, res, next){
+    res.render('products/all-sanpham')
+  }
   //[GET] /courses/:slug
   show(req, res, next) {
     products.find({}, function (err, product) {
@@ -142,6 +146,11 @@ class ProductController {
   test(req, res, next){
     res.render('products/all-sanpham');
   }
+  card(req, res, next){
+    res.render('all-sanpham');
+  }
+
+
 }
 
 module.exports = new ProductController();

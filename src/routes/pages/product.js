@@ -5,9 +5,12 @@ const productController = require("../../app/controllers/pages/ProductController
 
 router.get("/test/:page", productController.page);
 router.get("/testview", productController.test);
+router.get("/testview1", productController.card);
 // router.get("/upload", productController.upload);test
-// router.post("/uploadfile", productController.uploadfile);
+// router.post("/uploadfile", productController.uploadfile);allsp
 
+
+router.get("/all", productController.allsp);
 router.get("/show", productController.show);
 router.get("/create", productController.create);
 router.post("/store", productController.store);
