@@ -1,22 +1,882 @@
-<div class="mt-4">
-    <div class="row">
-        {{!-- {{#each courses }}
-        <div class="col-sm-6 col-lg-4 ">
-            <div class="card">
-               <a href="/courses/{{this.slug}}">
-                     <img src="{{this.image}}" class="card-img-top" alt="...">
-               </a>
-                <div class="card-body">
-                    <a href="/courses/{{this.slug}}">
-                        <h5 class="card-title">{{this.name}}</h5>
-                    </a>
-                    
-                    <p class="card-text">{{this.description}}</p>
-                    <a href="#" class="btn btn-primary">Mua khóa học</a>
+    <header class="header">  
+        <div class="evo-main-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <!--- MENU LEFT -->
+                        <div class="main-menu">
+                            <div class="nav-cate" style="top: 0">
+                                <ul class="menu">
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Nội thất gỗ
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Sofa, Ghế thư giãn & Nệm
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Đồ trang trí
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Đồ dùng vải
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Vật dụng bàn ăn
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            Đồ dùng văn phòng
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i> 
+                                            Đèn
+                                        </a>
+                                    </li>
+                                    <li class="menu-item-count">
+                                        <a href="/">
+                                            <i class="fas fa-angle-right"></i>
+                                            <strong>Xem thêm ...</strong>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-9">
+                        <!--- BANNER -->
+                        <div class="banner">
+                            <img src="img/banner.jpg" class="d-block w-100" alt="banner.jpg">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {{/each }} --}}
-
-    </div>
-</div>
+    </header>
+    <section class="section-1">
+        <div class="section-tab-san-pham">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="new-title">
+                            <!-- OPEN TAB MOBILE WITH INPUT CHECK  -->
+                            <div class="d-flex" style="justify-content: space-between;">
+                                <div></div>
+                                <h2>Sản phẩm mới về</h2>
+                                <!-- MOBILE MENU BUTTON -->
+                                <label for="tab-input" class="toggle-menu-button" style="margin-top: 0">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <!-- INPUT CHECK-2 -->
+                            <input type="checkbox" hidden id="tab-input" class="tab-input">
+                            <div class="tabs">
+                                <div class="tab-item active">
+                                    Nội thất gỗ
+                                </div>
+                                <div class="tab-item">
+                                    Sofa, ghế thư giãn & nệm
+                                </div>
+                                <div class="tab-item">
+                                    Đồ trang trí
+                                </div>
+                                <div class="tab-item">
+                                    Đồ dùng vải
+                                </div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="owl-carousel owl-product owl-theme">
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/giuong-ngu-go.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" type="submit"
+                                                        data-bs-toggle="modal" data-bs-target="#cartModal" onClick="cartLS.add({id: 1, name: 'Giường ngủ gỗ chất lượng cao cho gia đình', img:'giuong-ngu-go', price: 300})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Giường ngủ gỗ chất lượng cao cho gia đình</a>
+                                                        </h3>
+                                                        <p class="pro-price">300.000₫</p>
+                                                    </div>
+                                                </div>
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/gia-sach-go.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" type="submit"
+                                                        data-bs-toggle="modal" data-bs-target="#cartModal"onClick="cartLS.add({id: 2, name: 'Giá sách gỗ tự nhiên thiết kế đẹp', img:'gia-sach-go', price: 350})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Giá sách gỗ tự nhiên thiết kế đẹp</a>
+                                                        </h3>
+                                                        <p class="pro-price">350.000₫</p>
+                                                    </div>
+                                                </div>
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/tu-bep-gia-dinh.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" type="submit"
+                                                        data-bs-toggle="modal" data-bs-target="#cartModal" onClick="cartLS.add({id: 3, name: 'Tủ bếp gia đình gỗ sồi tự nhiên thiết kế hiện đại', img:'tu-bep-gia-dinh', price: 400})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Tủ bếp gia đình gỗ sồi tự nhiên thiết kế hiện đại</a>
+                                                        </h3>
+                                                        <p class="pro-price">400.000₫</p>
+                                                    </div>
+                                                </div>
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/tu-bep-go-hien-dai.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" type="submit"
+                                                        data-bs-toggle="modal" data-bs-target="#cartModal" onClick="cartLS.add({id: 4, name: 'Tủ bếp gỗ tự nhiên thiết kế đa năng đẹp hiện đại', img:'tu-bep-go-hien-dai', price: 550})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Tủ bếp gỗ tự nhiên thiết kế đa năng đẹp hiện đại</a>
+                                                        </h3>
+                                                        <p class="pro-price">500.000₫</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="owl-carousel owl-product owl-theme">
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/giuong-ngu-go.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" onClick="cartLS.add({id: 1, name: 'Giường ngủ gỗ', img:'giuong-ngu-go', price: 130})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Giường ngủ gỗ</a>
+                                                        </h3>
+                                                        <p class="pro-price">500.000₫</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="owl-carousel owl-product owl-theme">
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="">
+                                                            <img class="img-prd" src="img/All-products/gia-sach-go.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add" onClick="cartLS.add({id: 2, name: 'Giá sách gỗ', img:'gia-sach-go', price: 120})">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="" class="pro-name">Giá sách gỗ</a>
+                                                        </h3>
+                                                        <p class="pro-price">400.000₫</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="owl-carousel owl-product owl-theme">
+                                                <div class="evo-product-block-item ">
+                                                    <div class="product-img">
+                                                        <a href="./detail-sanpham.html">
+                                                            <img class="img-prd" src="img/All-products/tu-bep-gia-dinh.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="button-add">
+                                                        <button>
+                                                            <i class="far fa-check-square"></i>
+                                                        </button>
+                                                        <button class="btn-cart" onClick="cartLS.add({id: 3, name: 'Tủ bếp gia đình gỗ sồi tự nhiên thiết kế hiện đại', img:'tu-bep-gia-dinh', price: 400})">
+                                                            <i class="fas fa-shopping-bag"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-detail">
+                                                        <div class="pro-brand">
+                                                            <a href="">Evo Nội Thất</a>
+                                                        </div>
+                                                        <h3>
+                                                            <a href="./detail-sanpham.html" class="pro-name">Tủ bếp gia đình gỗ sồi tự nhiên thiết kế hiện đại</a>
+                                                        </h3>
+                                                        <p class="pro-price">400.000₫</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-2">
+        <div class="section-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <a href="" class="btn-type">
+                            <img src="img/section-banner/evo_banner_index_1.jpg" alt="">
+                            <div class="figcaption">
+                                <div class="banner-content">
+                                    <span>Creative</span>
+                                    Phòng ngủ
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <a href="" class="btn-type">
+                            <img src="img/section-banner/evo_banner_index_2.jpg" alt="">
+                            <div class="figcaption">
+                                <div class="banner-content">
+                                    <span>Creative</span>
+                                    Phòng ngủ
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <a href="" class="btn-type">
+                            <img src="img/section-banner/evo_banner_index_3.jpg" alt="">
+                            <div class="figcaption">
+                                <div class="banner-content">
+                                    <span>Creative</span>
+                                    Phòng ngủ
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <a href="" class="btn-type">
+                            <img src="img/section-banner/evo_banner_index_4.jpg" alt="">
+                            <div class="figcaption">
+                                <div class="banner-content">
+                                    <span>Creative</span>
+                                    Phòng ngủ
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <a href="" class="btn-type">
+                            <img src="img/section-banner/evo_banner_index_5.jpg" alt="">
+                            <div class="figcaption">
+                                <div class="banner-content">
+                                    <span>Creative</span>
+                                    Phòng ngủ
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-3">
+        <div class="section-san-pham">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="new-title">
+                            <h2>Nội thất gỗ</h2>
+                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="owl-carousel owl-product owl-theme">
+                                        <div class="evo-product-block-item">
+                                            <div class="product-img">
+                                                <a href="">
+                                                    <img src="img/section-tab-san-pham/tu-bep-bang-go-tu-nhien-nho-gon-da-nang-tien-loi.jpg" alt="">
+                                                </a>
+                                                <div class="button-add">
+                                                    <button>
+                                                        <i class="far fa-check-square"></i>
+                                                    </button>
+                                                    <button>
+                                                        <i class="fas fa-shopping-bag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="product-detail">
+                                                <div class="pro-brand">
+                                                    <a href="">Evo Nội Thất</a>
+                                                </div>
+                                                <h3 class="pro-name">
+                                                    <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                                </h3>
+                                                <p class="pro-price">12.500.000₫</p>
+                                            </div>
+                                        </div>
+                                        <div class="evo-product-block-item">
+                                            <div class="product-img">
+                                                <a href="">
+                                                    <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                                </a>
+                                                <div class="button-add">
+                                                    <button>
+                                                        <i class="far fa-check-square"></i>
+                                                    </button>
+                                                    <button>
+                                                        <i class="fas fa-shopping-bag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="product-detail">
+                                                <div class="pro-brand">
+                                                    <a href="">Evo Nội Thất</a>
+                                                </div>
+                                                <h3 class="pro-name">
+                                                    <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                                </h3>
+                                                <p class="pro-price">12.500.000₫</p>
+                                            </div>
+                                        </div>
+                                        <div class="evo-product-block-item">
+                                            <div class="product-img">
+                                                <a href="">
+                                                    <img src="img/section-tab-san-pham/tu-bep-bang-go-tu-nhien-nho-gon-da-nang-tien-loi.jpg" alt="">
+                                                </a>
+                                                <div class="button-add">
+                                                    <button>
+                                                        <i class="far fa-check-square"></i>
+                                                    </button>
+                                                    <button>
+                                                        <i class="fas fa-shopping-bag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="product-detail">
+                                                <div class="pro-brand">
+                                                    <a href="">Evo Nội Thất</a>
+                                                </div>
+                                                <h3 class="pro-name">
+                                                    <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                                </h3>
+                                                <p class="pro-price">12.500.000₫</p>
+                                            </div>
+                                        </div>
+                                        <div class="evo-product-block-item">
+                                            <div class="product-img">
+                                                <a href="">
+                                                    <img src="img/section-tab-san-pham/ezgif.jpg" alt="">
+                                                </a>
+                                                <div class="button-add">
+                                                    <button>
+                                                        <i class="far fa-check-square"></i>
+                                                    </button>
+                                                    <button>
+                                                        <i class="fas fa-shopping-bag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="product-detail">
+                                                <div class="pro-brand">
+                                                    <a href="">Evo Nội Thất</a>
+                                                </div>
+                                                <h3 class="pro-name">
+                                                    <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                                </h3>
+                                                <p class="pro-price">12.500.000₫</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-4">
+        <div class="section-trending">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12" style="padding-right: 4.75rem;">
+                        <div class="banner-item">
+                            <div class="banner-img">
+                                <a href="">
+                                    <img src="img/section-trending/evo_banner_two_1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="banner-content">
+                                <span>Phòng Khách</span>
+                                <h4>
+                                    Bộ Sưu Tập <br>
+                                    Chao Đèn
+                                </h4>
+                                <a href="" class="umino-btn">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12" style="padding-left: 4.75rem;">
+                        <div class="banner-item banner-item-last">
+                            <div class="banner-img">
+                                <a href="">
+                                    <img src="img/section-trending/evo_banner_two_2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="banner-content">
+                                <span>Giải nhiệt hè</span>
+                                <h4>
+                                    Giá Siêu Cool <br>
+                                    Giảm 30%
+                                </h4>
+                                <a href="" class="umino-btn">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <section class="section-5">
+        <div class="section-san-pham-col">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="new-title">
+                            <h2>Nổi bật</h2>
+                        </div>
+                        <div class="evo-three-col-slick">
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/ezgif.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-go-tu-nhien-thiet-ke-da-nang-dep-hien-dai.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="new-title">
+                            <h2>Bán chạy</h2>
+                        </div>
+                        <div class="evo-three-col-slick">
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="new-title">
+                            <h2>Khuyến mãi</h2>
+                        </div>
+                        <div class="evo-three-col-slick">
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/ezgif.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-go-tu-nhien-thiet-ke-da-nang-dep-hien-dai.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="evo-product-item">
+                                <div class="product-img">
+                                    <div class="product-sale">
+                                        <span>- 16% </span>
+                                    </div>
+                                    <a href="">
+                                        <img src="img/section-tab-san-pham/tu-bep-gia-dinh-go-cong-nghiep-nho-gon-da-nang.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="pro-brand">
+                                        <a href="">Evo Nội Thất</a>
+                                    </div>
+                                    <h3 class="pro-name">
+                                        <a href="">Tủ bếp bằng gỗ tự nhiên nhỏ gọn đa năng tiện lợi</a>
+                                    </h3>
+                                    <div class="box-pro-price">
+                                        <p class="pro-price">12.500.000₫</p>
+                                        <span class="pro-price-del">
+                                            <del class="compare-price">1.540.000₫</del>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-6">
+        <div class="container section-blogs">   
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="new-title">
+                        <h2>Tư vấn thiết kế</h2>
+                    </div>
+                    <div class="owl-carousel owl-blogs owl-theme">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="">
+                                    <img src="img/section-blogs/blog_1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="">Tấm lưới thay trần nhà giúp gia chủ Sài Gòn thư giãn</a>
+                                </h3>
+                                <p>Ban đầu, ngồi trên chiếc lưới dù treo trên trần phòng khách, chủ nhà cũng thấy “run”, nhưng sau khi đã que...</p>
+                            </div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="">
+                                    <img src="img/section-blogs/blog_2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="">Tấm lưới thay trần nhà giúp gia chủ Sài Gòn thư giãn</a>
+                                </h3>
+                                <p>Ban đầu, ngồi trên chiếc lưới dù treo trên trần phòng khách, chủ nhà cũng thấy “run”, nhưng sau khi đã que...</p>
+                            </div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="">
+                                    <img src="img/section-blogs/blog_3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="">Tấm lưới thay trần nhà giúp gia chủ Sài Gòn thư giãn</a>
+                                </h3>
+                                <p>Ban đầu, ngồi trên chiếc lưới dù treo trên trần phòng khách, chủ nhà cũng thấy “run”, nhưng sau khi đã que...</p>
+                            </div>
+                        </div>
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="">
+                                    <img src="img/section-blogs/blog_4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <h3>
+                                    <a href="">Tấm lưới thay trần nhà giúp gia chủ Sài Gòn thư giãn</a>
+                                </h3>
+                                <p>Ban đầu, ngồi trên chiếc lưới dù treo trên trần phòng khách, chủ nhà cũng thấy “run”, nhưng sau khi đã que...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-7">
+        <div class="container section-brand">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="evo-brand">
+                        <div class="owl-carousel owl-brands">
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_1.jpg" alt="">
+                            </div>
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_2.jpg" alt="">
+                            </div>
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_3.jpg" alt="">
+                            </div>
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_4.jpg" alt="">
+                            </div>
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_5.jpg" alt="">
+                            </div>
+                            <div class="evo-brand-img">
+                                <img src="img/section-brand/partner_1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
