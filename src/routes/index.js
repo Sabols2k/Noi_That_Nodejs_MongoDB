@@ -23,6 +23,7 @@ const gioithieuRouter = require("./pages/gioithieu");
 const lienheuRouter = require("./pages/lienhe");
 const cartRouter = require("./pages/cart");
 const checkoutRouter = require("./pages/checkout");
+const accountRouter = require("./pages/account");
 
 
 
@@ -63,7 +64,7 @@ function route(app) {
     app.use("/logout", logoutRouter);
     app.use("/register", registerRouter);
     app.use("/home", homeRouter);
-    // app.use("/", homeRouter);
+    app.use("/account", accountRouter);
   
 }
 const checkLoggedInAdmin = (req, res, next) => {

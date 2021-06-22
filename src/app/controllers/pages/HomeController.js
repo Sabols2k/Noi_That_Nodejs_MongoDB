@@ -5,7 +5,7 @@ const {mutipleMongooseToObject} = require('../../../util/mongoose');
 class HomeController {
 
   index(req, res, next) {
-    res.render('products/show');
+    res.render('home');
   }
   notfoud(req, res, next){
       res.render('404notfound');
