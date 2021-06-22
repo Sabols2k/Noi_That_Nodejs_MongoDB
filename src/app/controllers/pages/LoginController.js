@@ -34,6 +34,7 @@ class LoginController {
       } else {
         req.session.loggedIn = true;
         req.session.user = user;
+        req.session.userid = user._id;
         // res.redirect('back');
         res.redirect('/home');
         console.log(req.session)

@@ -14,6 +14,7 @@ const logoutRouter = require("./pages/logout");
 const registerRouter = require("./pages/register");
 const allsanphamRouter = require("./pages/allsanpham");
 const detailsanphamRouter = require("./pages/detailsanpham");
+const profileRouter = require("./pages/profile");
 const productRouter = require("./pages/product");
 const uploadRouter = require("./pages/upload");
 const uploadfileRouter = require("./pages/uploadfile");
@@ -55,6 +56,7 @@ function route(app) {
     app.use("/product", productRouter);
     app.use("/all-sanpham", allsanphamRouter);
     app.use("/detail-sanpham", detailsanphamRouter);
+    app.use("/profile", profileRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
     app.use("/login", checkNotLoggedIn, loginRouter);
