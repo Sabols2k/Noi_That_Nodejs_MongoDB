@@ -23,6 +23,7 @@ const lienheuRouter = require("./pages/lienhe");
 const cartRouter = require("./pages/cart");
 const checkoutRouter = require("./pages/checkout");
 const accountRouter = require("./pages/account");
+const searchRouter = require("./pages/search");
 
 
 
@@ -63,6 +64,7 @@ function route(app) {
     app.use("/register", registerRouter);
     app.use("/home", homeRouter);
     app.use("/account", accountRouter);
+    app.use("/search", searchRouter);
   
 }
 const checkLoggedInAdmin = (req, res, next) => {
