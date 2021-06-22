@@ -34,26 +34,6 @@ app.use(
 
 
 
-app.use(function (req, res, next) {
-  // if(typeof  req.session.userId != "undefined"){
-  //   next();
-  // }
-  // else{
-  //   res.redirect("/admin/login");
-  //   // console.log("chauchau");
-  //   console.log(req.session);
-  //   console.log("aaaaa111")
-  // console.log("a"+req.session.userId);
-  // }
-  // next();
-  // if (req.session.user) {
-  //   console.log("yes");
-  // } else {
-  //   console.log("no");
-  // }
-  // console.log(req)
-  next();
-});
 
 // parse application/json
 app.use(bodyParser.json());

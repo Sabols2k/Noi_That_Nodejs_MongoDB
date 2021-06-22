@@ -3,7 +3,6 @@ const router = express.Router();
 
 const adminController = require('../../app/controllers/admin/AdminController');
 
-router.get('/testview', adminController.test);
 router.get('/test/:page', adminController.page);
 // router.get('/show', adminController.show);
 router.get('/create', adminController.create);

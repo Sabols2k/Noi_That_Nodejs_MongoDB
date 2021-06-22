@@ -23,26 +23,15 @@ class AdminController {
 
   // }
   index(req, res, next) {
-    // res.render('courses/create');
-    //Xuất ra JSON API
-    // admins.find({}, function (err, admin) {
-    //   if(!err) {
-    //     res.json(admin)
-    //   } else{
-    //     res.status(400).json({error: "ERROR"});
-    //   }
-    // })
-    console.log(req.session)
-    // req.session.user1 = "abccccc";
-    console.log(req.session);
-    products
-      .find({})
-      .then((product) =>
-        res.render("products/stored-products", {
-          products: mutipleMongooseToObject(product),
-        })
-      )
-      .catch(next);
+    res.render("admins/dashboard",{ layout: 'admin.hbs'})
+    // products
+    //   .find({})
+    //   .then((product) =>
+    //     res.render("products/stored-products", {
+    //       products: mutipleMongooseToObject(product),
+    //     })
+    //   )
+    //   .catch(next);
   }
 
   //[POST] /courses/create

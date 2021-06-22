@@ -1,4 +1,5 @@
 const admins = require("../../models/Admin");
+const users = require("../../models/User");
 const products = require("../../models/Product");
 const { mongooseToObject } = require("../../../util/mongoose");
 const { mutipleMongooseToObject } = require("../../../util/mongoose");
@@ -18,28 +19,17 @@ const posts = [
   },
 ];
 
-class AdminController {
+class AdminUserController {
   // checksession(req, res, next){
 
   // }
   index(req, res, next) {
-    // res.render('courses/create');
-    //Xuất ra JSON API
-    // admins.find({}, function (err, admin) {
-    //   if(!err) {
-    //     res.json(admin)
-    //   } else{
-    //     res.status(400).json({error: "ERROR"});
-    //   }
-    // })
-    console.log(req.session)
-    // req.session.user1 = "abccccc";
-    console.log(req.session);
-    products
+    users
       .find({})
-      .then((product) =>
-        res.render("products/stored-products", {
-          products: mutipleMongooseToObject(product),
+      .then((admin) =>
+        res.render("admins/user", {
+          layout: 'admin.hbs',
+          users: mutipleMongooseToObject(admin),
         })
       )
       .catch(next);
@@ -148,6 +138,6 @@ class AdminController {
   }
 }
 
-module.exports = new AdminController();
+module.exports = new AdminUserController();
 
 // const courseController = require('./CourseController');

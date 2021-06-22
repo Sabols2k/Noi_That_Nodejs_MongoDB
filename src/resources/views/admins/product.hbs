@@ -235,6 +235,7 @@
 
                                 </a>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                   
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -254,6 +255,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                         {{#each admins}}
                                         <tr>
                                             <td>101</td>
                                             <td>
@@ -270,7 +272,10 @@
                                                 </a>
                                             </td>
                                         </tr> 
+                                        {{/each}}
                                     </tbody>
+
+                                    
                                 </table>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ const multer = require("multer");
 //admin
 const meRouter = require("./me");
 const adminRouter = require("./admin/admin");
+const adminuserRouter = require("./admin/user");
 const adminloginRouter = require("./admin/login");
 const adminlogoutRouter = require("./admin/logout");
 
@@ -43,8 +44,9 @@ function route(app) {
   //admin
   app.use("/adminlogin",checkNotLoggedInAdmin, adminloginRouter);
   app.use("/adminlogout", adminlogoutRouter);
-  app.use("/admin", adminRouter);
-  // app.use("/admin", checkLoggedInAdmin, adminRouter);
+  app.use("/admin-dashboard", adminRouter);
+  app.use("/admin-user", adminuserRouter);
+  // app.use("/admin", checkLoggedInAdmin, adminRouter);adminuserRouter
 
     //pages
     app.get('/', (req, res) => {
@@ -57,14 +59,14 @@ function route(app) {
     app.use("/product", productRouter);
     app.use("/all-sanpham", allsanphamRouter);
     app.use("/detail-sanpham", detailsanphamRouter);
-    app.use("/profile", profileRouter);
+    app.use("/account", profileRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
     app.use("/login", checkNotLoggedIn, loginRouter);
     app.use("/logout", logoutRouter);
     app.use("/register", registerRouter);
     app.use("/home", homeRouter);
-    app.use("/account", accountRouter);
+    // app.use("/account", accountRouter);
   
 }
 const checkLoggedInAdmin = (req, res, next) => {
