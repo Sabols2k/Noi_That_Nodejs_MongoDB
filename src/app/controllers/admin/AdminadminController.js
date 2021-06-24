@@ -8,29 +8,18 @@ const bcrypt = require("bcryptjs");
 
 const crypto = require("crypto");
 
-const posts = [
-  {
-    username: "Kyle",
-    title: "Post 1",
-  },
-  {
-    username: "Jim",
-    title: "Post 2",
-  },
-];
 
-class AdminUserController {
+class AdminadminController {
   // checksession(req, res, next){
 
   // }
   index(req, res, next) {
-   
-    users
+    admins
       .find({})
       .then((admin) =>
-        res.render("admins/user", {
+        res.render("admins/admin", {
           layout: 'admin.hbs',
-          users: mutipleMongooseToObject(admin),
+          admins: mutipleMongooseToObject(admin),
         })
       )
       .catch(next);
@@ -40,14 +29,14 @@ class AdminUserController {
   create(req, res, next) {
     
     const data = req.body;
-    data.role="user";
+    data.role="admin";
     data.passwordHash=bcrypt.hashSync(data.password, 10);
     console.log(data)
-    const user = new users(data);
-    user.save()
+    const admin = new admins(data);
+    admin.save()
     .then(item => 
     { 
-      res.redirect('/adminuser')
+      res.redirect('/all-admin')
       // res.send("item saved to database");
     })
 
@@ -120,7 +109,7 @@ class AdminUserController {
   //[PUT] /courses/:id
   update(req, res, next) {
     console.log(req.params.id);
-    users
+    admins
       .updateOne({ _id: req.params.id }, req.body)
       .catch(next);
 
@@ -130,7 +119,7 @@ class AdminUserController {
   destroy(req, res, next) {
     // console.log(req.params.id )
     console.log(req.params)
-    users
+    admins
       .deleteOne({ _id: req.params })
       .then(() => res.redirect("back"))
       .catch(next);
@@ -138,7 +127,7 @@ class AdminUserController {
   async delete(req, res, next) {
     try {
         const { id } = req.params
-        await users.deleteOne({ _id: id })
+        await admins.deleteOne({ _id: id })
         res.redirect("back")
     } catch (err) {
         res.send({ status: false })
@@ -160,6 +149,6 @@ class AdminUserController {
   }
 }
 
-module.exports = new AdminUserController();
+module.exports = new AdminadminController();
 
 // const courseController = require('./CourseController');

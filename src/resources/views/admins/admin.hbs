@@ -180,7 +180,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Dang Duc Chau</span>
                                 <img class="img-profile rounded-circle"
-                                    src="../admin/img/admin-avatar.jpg">
+                                     src="../admin/img/admin-avatar.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -215,67 +215,72 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">All Products</h1>
+                        <h1 class="h3 mb-0 text-gray-800">All Users</h1>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-secondary">All Products</h6>
+                            <h6 class="m-0 font-weight-bold text-secondary">All Users</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
 
-                                <a href="#!" class="btn btn-light btn-icon-split mb-3"
-                                data-toggle="modal" data-target="#addProductModal">
+                                <a href="#!" class="btn btn-light btn-icon-split mb-3 add-button"
+                                data-toggle="modal" data-target="#addUserModal">
                                     <span class="icon text-gray-600">
                                         <i class="fas fa-arrow-right"></i>
                                     </span>
                                     <span class="text">ADD NEW</span>
-
                                 </a>
+                               
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                   
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
+                                            <th>Email</th>
+                                            <th>Avatar</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
+                                            <th>Email</th>
+                                            <th>Avatar</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                         {{#each products}}
+                                        {{#each admins}}
                                         <tr>
+                                            
                                             <td>{{this._id}}</td>
+                                            <td class="{{this._id}}_firstname">{{this.firstname}}</td>
+                                            <td class="{{this._id}}_lastname">{{this.lastname}}</td>
+                                            <td class="{{this._id}}_email">{{this.email}}</td>
                                             <td>
-                                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="./../admin/img/{{this.img}}.jpg" alt="">
+                                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="../admin/img/{{this.img}}.jpg" alt="">
                                             </td>
-                                            <td class="{{this._id}}_name">{{this.name}}</td>
-                                            <td class="{{this._id}}_price">{{this.price}}</td>
+                                            <td>{{this.role}}</td>
                                             <td class="d-flex justify-content-around">
-                                                <a href="" class="update-btn" data-id="{{this._id}}" data-toggle="modal" data-target="#updateProductModal">
+                                                <a href="" class="update-btn" data-id="{{this._id}}" data-toggle="modal" data-target="#updateUserModal" >
                                                     <i class="fa fa-wrench fa-lg action" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="" data-id="{{this._id}}" data-toggle="modal"  data-target="#delete_courses_modal" class="delete-btn">
-                                                    <i class="fa fa-trash fa-lg action" aria-hidden="true"></i>
+                                                    <i  class="fa fa-trash fa-lg function"
+                                                        aria-hidden="true"></i>
                                                 </a>
                                             </td>
-                                        </tr> 
+                                        </tr>  
                                         {{/each}}
                                     </tbody>
-
-                                    
                                 </table>
                             </div>
                         </div>
@@ -304,98 +309,130 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
+
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="login.html">Logout</a>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <!-- Add Product Modal-->
-        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form  class="modal-form form-create" action="/adminproduct/create"  method="POST" >
-                        <div class="modal-body">
-                        
-                            <div class="form-group">
-                                <input name="name" type="text" class="form-control" id="exampleInputEmail"
-                                    placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <input name="price" type="text" class="form-control" id="exampleInputEmail"
-                                    placeholder="Price">
-                            </div>
-                            <div class="form-group">
-                                <input name="image" type="file" class="form-control" id="exampleInputPassword"
-                                    placeholder="Image">
-                            </div>
-                        
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Update Product Modal-->
-        <div class="modal fade" id="updateProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true" data-backdrop="static" data-keyboard="false">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form method="POST" class="update-form">
+        <!-- Add User Modal-->
+        <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                     <form class="modal-form form-create" action="/all-admin/create" method="POST">
                         <div class="modal-body">
-                            
-                                <label style="display: none" for="" class="getId"></label>
-                                <div class="form-group">
-                                    <input name="name" type="text" class="form-control" id="exampleInputEmail"
-                                        placeholder="Name">
-                                </div>
-                
-                                <div class="form-group">
-                                    <input name="price" type="text" class="form-control" id="exampleInputPassword"
-                                        placeholder="Price">
-                                </div>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <div class="modal-footer">
-                                <button name="editUser" type="submit" class="btn btn-success">Submit</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       
+                        <div class="form-group">
+                                <input name="email" type="email" class="form-control" id="exampleInputPassword"
+                                    placeholder="Email">
                             </div>
+                            <div class="form-group">
+                                <input name="username" type="username" class="form-control" id="exampleInputPassword"
+                                    placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input name="password" type="password" class="form-control" id="exampleInputPassword"
+                                    placeholder="Password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <input name="phoneNumber" type="phoneNumber" class="form-control" id="exampleInputPassword"
+                                    placeholder="phoneNumber">
+                            </div>
+                            <div class="form-group">
+                                <input name="firstname" type="firstname" class="form-control" id="exampleInputPassword"
+                                    placeholder="Firstname">
+                            </div>
+                            <div class="form-group">
+                                <input name="lastname" type="lastname" class="form-control" id="exampleInputPassword"
+                                    placeholder="Lastname">
+                            </div>
+                            <div class="form-group">
+                                <input name="age" type="age" class="form-control" id="exampleInputPassword"
+                                    placeholder="age">
+                            </div>
+                            <div class="form-group">
+                                <input name="img" type="img" class="form-control" id="exampleInputPassword"
+                                    placeholder="IMG">
+                            </div>
+                            {{!-- <select name="role" multiple class="form-control" id="select1">
+                                <option Selected value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select> --}}
+                      
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+
+        
+    <!-- Edit modal -->
+    <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="" id="modalEdit" data-dismiss="modal" style="text-decoration: none; color: #000">
+                        X
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <form  method="POST" class="update-form">
+                        <label style="display: none" for="" class="getId"></label>
+                        <div class="form-group">
+                            <input value="" name="email" type="email" class="form-control" id="exampleInputPassword1"
+                                placeholder="Email" disabled>
                         </div>
-                        </form>
+                        <div class="form-group">
+                            <input value="" name="firstname" type="firstname" class="form-control" id="exampleInputPassword1"
+                                placeholder="Firstname" >
+                        </div>
+                        <div class="form-group">
+                            <input value="" name="lastname" type="lastname" class="form-control" id="exampleInputPassword1"
+                                placeholder="Lastname" >
+                        </div>
+                        {{!-- <select name="level" class="form-control" id="select2">
+                            <option class="update-option1" value='0'>User</option>
+                            <option class="update-option2" value='1'>Admin</option>
+                        </select> --}}
+                        <button name="editUser" type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </div>
         </div>
+    </div>
 
 
 {{!-- confirm delete user --}}
@@ -440,17 +477,19 @@
    
     
     btnDeleteCourse.onclick = function (){
-      deleteForm.action = '/adminproduct/'+ userId + '?_method=DELETE';
+      deleteForm.action = '/all-admin/'+ userId + '?_method=DELETE';
       deleteForm.submit();
     }
     $(".update-btn").click(function () {
            
             var id = $(this).attr("data-id")
-            var name = $("." + id + "_name").html()
-            var price = $("." + id + "_price").html()
-            console.log(price);
-            $(".update-form input[name=name]").val(name)
-            $(".update-form input[name=price]").val(price)
+            var email = $("." + id + "_email").html()
+            console.log(email)
+            var firstname = $("." + id + "_firstname").html()
+            var lastname = $("." + id + "_lastname").html()
+            $(".update-form input[name=email]").val(email)
+            $(".update-form input[name=firstname]").val(firstname)
+            $(".update-form input[name=lastname]").val(lastname)
             $(".getId").html(id)
     })
 
@@ -458,8 +497,8 @@
     e.preventDefault()
     const formData = {
         id: $('.getId').html(),
-        name: $('.update-form input[name=name]').val(),
-        price: $('.update-form input[name=price]').val(),
+        firstname: $('.update-form input[name=firstname]').val(),
+        lastname: $('.update-form input[name=lastname]').val(),
         //level: $('#select2 option:selected').val(),
     }
 
@@ -469,7 +508,7 @@
 
     $.ajax({
         type: "PUT",
-        url: `http://localhost:3000/adminproduct/${id}`,
+        url: `http://localhost:3000/all-admin/${id}`,
         data: JSON.stringify(formData),
         contentType: 'application/json',
         encode: true,

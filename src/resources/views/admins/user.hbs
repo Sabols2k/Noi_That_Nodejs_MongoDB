@@ -226,7 +226,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
 
-                                <a href="new-booking.html" class="btn btn-light btn-icon-split mb-3 add-button"
+                                <a href="#!" class="btn btn-light btn-icon-split mb-3 add-button"
                                 data-toggle="modal" data-target="#addUserModal">
                                     <span class="icon text-gray-600">
                                         <i class="fas fa-arrow-right"></i>
@@ -238,6 +238,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
                                             <th>Email</th>
                                             <th>Avatar</th>
                                             <th>Role</th>
@@ -247,6 +249,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
                                             <th>Email</th>
                                             <th>Avatar</th>
                                             <th>Role</th>
@@ -254,22 +258,28 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        {{#each users}}
                                         <tr>
+                                            
+                                            <td>{{this._id}}</td>
+                                            <td class="{{this._id}}_firstname">{{this.firstname}}</td>
+                                            <td class="{{this._id}}_lastname">{{this.lastname}}</td>
+                                            <td class="{{this._id}}_email">{{this.email}}</td>
                                             <td>
-                                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="../admin/img/user1.jpg" alt="">
+                                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="../admin/img/{{this.img}}.jpg" alt="">
                                             </td>
-                                            <td>4444565756</td>
-                                            <td>rajesh@gmail.com</td>
-                                            <td>1</td>
+                                            <td>{{this.role}}</td>
                                             <td class="d-flex justify-content-around">
-                                                <a href="" class="update-btn" data-id="" data-toggle="modal" data-target="#updateUserModal">
+                                                <a href="" class="update-btn" data-id="{{this._id}}" data-toggle="modal" data-target="#updateUserModal" >
                                                     <i class="fa fa-wrench fa-lg action" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="/adminUser/delete" data-id="" class="delete-btn">
-                                                    <i class="fa fa-trash fa-lg action" aria-hidden="true"></i>
+                                                <a href="" data-id="{{this._id}}" data-toggle="modal"  data-target="#delete_courses_modal" class="delete-btn">
+                                                    <i  class="fa fa-trash fa-lg function"
+                                                        aria-hidden="true"></i>
                                                 </a>
                                             </td>
                                         </tr>  
+                                        {{/each}}
                                     </tbody>
                                 </table>
                             </div>
@@ -331,60 +341,189 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form class="modal-form form-create" action="/adminuser/create" method="POST">
-                            <div class="form-group">
+                     <form class="modal-form form-create" action="/adminuser/create" method="POST">
+                        <div class="modal-body">
+                       
+                        <div class="form-group">
                                 <input name="email" type="email" class="form-control" id="exampleInputPassword"
                                     placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input name="username" type="username" class="form-control" id="exampleInputPassword"
+                                    placeholder="Username">
                             </div>
                             <div class="form-group">
                                 <input name="password" type="password" class="form-control" id="exampleInputPassword"
                                     placeholder="Password">
                             </div>
-                            <select name="role" multiple class="form-control" id="select1">
+                            
+                            <div class="form-group">
+                                <input name="phoneNumber" type="phoneNumber" class="form-control" id="exampleInputPassword"
+                                    placeholder="phoneNumber">
+                            </div>
+                            <div class="form-group">
+                                <input name="firstname" type="firstname" class="form-control" id="exampleInputPassword"
+                                    placeholder="Firstname">
+                            </div>
+                            <div class="form-group">
+                                <input name="lastname" type="lastname" class="form-control" id="exampleInputPassword"
+                                    placeholder="Lastname">
+                            </div>
+                            <div class="form-group">
+                                <input name="age" type="age" class="form-control" id="exampleInputPassword"
+                                    placeholder="age">
+                            </div>
+                            <div class="form-group">
+                                <input name="img" type="img" class="form-control" id="exampleInputPassword"
+                                    placeholder="IMG">
+                            </div>
+                            {{!-- <select name="role" multiple class="form-control" id="select1">
                                 <option Selected value="user">User</option>
                                 <option value="admin">Admin</option>
-                            </select>
-                        </form>
+                            </select> --}}
+                      
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
+                      </form>
                 </div>
             </div>
         </div>
 
-        <!-- Update User Modal-->
-        <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/adminuser/update" method="POST" class="update-form">
-                            <label style="display: none" for="" class="getId"></label>
-                            <div class="form-group">
-                                <input value="" name="email" type="email" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Email" disabled>
-                            </div>
-                            <select name="level" class="form-control" id="select2">
-                                <option class="update-option1" value='0'>User</option>
-                                <option class="update-option2" value='1'>Admin</option>
-                            </select>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="modal-footer">
-                            <button name="updateUser" type="submit" class="btn btn-success">Submit</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+    <!-- Edit modal -->
+    <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="" id="modalEdit" data-dismiss="modal" style="text-decoration: none; color: #000">
+                        X
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <form  method="POST" class="update-form">
+                        <label style="display: none" for="" class="getId"></label>
+                        <div class="form-group">
+                            <input value="" name="email" type="email" class="form-control" id="exampleInputPassword1"
+                                placeholder="Email" disabled>
                         </div>
+                        <div class="form-group">
+                            <input value="" name="firstname" type="firstname" class="form-control" id="exampleInputPassword1"
+                                placeholder="Firstname" >
+                        </div>
+                        <div class="form-group">
+                            <input value="" name="lastname" type="lastname" class="form-control" id="exampleInputPassword1"
+                                placeholder="Lastname" >
+                        </div>
+                        {{!-- <select name="level" class="form-control" id="select2">
+                            <option class="update-option1" value='0'>User</option>
+                            <option class="update-option2" value='1'>Admin</option>
+                        </select> --}}
+                        <button name="editUser" type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+{{!-- confirm delete user --}}
+
+<div class="modal fade" id="delete_courses_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn chắc chắn muốn xóa User này! 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button id="btn-delete-course" type="button" class="btn btn-danger">Xóa bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Delete hidden form --}}
+<form name="delete-course-form" method="POST" >
+       
+    </form>
+
+<script>
+ document.addEventListener('DOMContentLoaded',function(){
+    var userId; 
+    var deleteForm = document.forms['delete-course-form'];
+    var btnDeleteCourse = document.getElementById('btn-delete-course');
+    // when dialog confirm clicked 
+    $('#delete_courses_modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) ;
+      userId = button.data('id') ;
+      
+    });
+  
+   
+    
+    btnDeleteCourse.onclick = function (){
+      deleteForm.action = '/adminuser/'+ userId + '?_method=DELETE';
+      deleteForm.submit();
+    }
+    $(".update-btn").click(function () {
+           
+            var id = $(this).attr("data-id")
+            var email = $("." + id + "_email").html()
+            console.log(email)
+            var firstname = $("." + id + "_firstname").html()
+            var lastname = $("." + id + "_lastname").html()
+            $(".update-form input[name=email]").val(email)
+            $(".update-form input[name=firstname]").val(firstname)
+            $(".update-form input[name=lastname]").val(lastname)
+            $(".getId").html(id)
+    })
+
+    $(".update-form").submit(function (e) {
+    e.preventDefault()
+    const formData = {
+        id: $('.getId').html(),
+        firstname: $('.update-form input[name=firstname]').val(),
+        lastname: $('.update-form input[name=lastname]').val(),
+        //level: $('#select2 option:selected').val(),
+    }
+
+    const id = $(".getId").html()
+    console.log(formData);
+    console.log(id)
+
+    $.ajax({
+        type: "PUT",
+        url: `http://localhost:3000/adminuser/${id}`,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        encode: true,
+    }).done(function (res) {
+        $('#modalEdit').click()
+    })
+
+})
+
+
+
+ });
+ 
+
+
+ 
+
+</script>

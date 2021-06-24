@@ -12,16 +12,16 @@ class AdminLoginController {
 
   async index(req, res, next) {
     console.log(req.session)
-    const user = await admins.findOne({ username: "chaudd" });
-    res.render("admins/login");
+    // const user = await admins.findOne({ username: "chaudd" });
+    res.render("admins/login", { layout: false });
   }
 
   // }
   async login(req, res, next) {
-    // console.log(req.session)
+    console.log(req.session)
     try {
       console.log(req.body)
-      var user = await admins.findOne({ username: req.body.username });
+      var user = await admins.findOne({ email: req.body.email });
       // user = mongooseToObject(user)
       console.log(user)
       console.log(req.body)
@@ -32,7 +32,7 @@ class AdminLoginController {
       } else {
         req.session.adminloggedIn = true;
         req.session.adminId = user._id;
-        res.redirect('/admin')
+        res.redirect('/admin-dashboard')
 
         console.log(req.session)
       }

@@ -6,6 +6,8 @@ const multer = require("multer");
 const meRouter = require("./me");
 const adminRouter = require("./admin/admin");
 const adminuserRouter = require("./admin/user");
+const adminadminRouter = require("./admin/admins");
+const adminproductRouter = require("./admin/product");
 const adminloginRouter = require("./admin/login");
 const adminlogoutRouter = require("./admin/logout");
 
@@ -43,10 +45,12 @@ function route(app) {
 
   //admin
   app.use("/adminlogin",checkNotLoggedInAdmin, adminloginRouter);
-  app.use("/adminlogout", adminlogoutRouter);
-  app.use("/admin-dashboard", adminRouter);
-  app.use("/admin-user", adminuserRouter);
-  // app.use("/admin", checkLoggedInAdmin, adminRouter);adminuserRouter
+  app.use("/adminlogout", checkLoggedInAdmin,adminlogoutRouter);
+  app.use("/admin-dashboard",checkLoggedInAdmin, adminRouter);
+  app.use("/adminuser",checkLoggedInAdmin, adminuserRouter);
+  app.use("/all-admin", adminadminRouter);
+  app.use("/adminproduct",checkLoggedInAdmin, adminproductRouter);
+  // app.use("/admin", checkLoggedInAdmin, adminRouter);adminadminRouter
 
     //pages
     app.get('/', (req, res) => {
@@ -59,7 +63,7 @@ function route(app) {
     app.use("/product", productRouter);
     app.use("/all-sanpham", allsanphamRouter);
     app.use("/detail-sanpham", detailsanphamRouter);
-    app.use("/account", profileRouter);
+    app.use("/account",checkLogged, profileRouter);
     app.use("/upload", uploadRouter);
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
     app.use("/login", checkNotLoggedIn, loginRouter);
@@ -80,7 +84,7 @@ const checkNotLoggedInAdmin = (req, res, next) => {
   if (!req.session.adminloggedIn) {
     next();
   } else {
-    res.redirect("/admin");
+    res.redirect("/admin-dashboard");
   }
 };
 function checkLogged(req, res, next) {
@@ -88,7 +92,7 @@ function checkLogged(req, res, next) {
   if (req.session.loggedIn) {
     next();
   } else {
-    res.render("admins/login");
+    res.redirect("/login");
   }
   // if (req.session.loggedIn){
   //   next();
@@ -96,30 +100,14 @@ function checkLogged(req, res, next) {
   // console.log(req.session.loggedIn)
   // next();
 }
-
-// const checkLoggedIn = (req, res, next) => {
-//   if (req.session.loggedIn) {
-//       next();
-//   } else {
-//     res.redirect('/login')
-//   }
-// }
-
 const checkNotLoggedIn = (req, res, next) => {
   if (!req.session.loggedIn) {
       next()
   } else {
-      res.redirect('/');
+      res.redirect('/home');
   }
 }
 
-// const checkNotLoggedInAdmin = (req, res, next) => {
-//   if (!req.session.adminLoggedIn) {
-//       next()
-//   } else {
-//       res.render("admin/user", { layout: 'admin.hbs' });
-//   }
-// }
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
