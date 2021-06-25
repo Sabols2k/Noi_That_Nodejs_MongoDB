@@ -3,7 +3,7 @@ const users = require("../../models/User");
 const products = require("../../models/Product");
 const {
   mongooseToObject,
-  mutipleMongooseToObject,
+  mutipleMongooseToObject,checkLoginForOption
 } = require("../../../util/mongoose");
 const bcrypt = require("bcryptjs");
 
@@ -13,7 +13,12 @@ class RegisterController {
 
   index(req, res, next) {
     
-    res.render("register");
+    var lst = checkLoginForOption(req.session)
+
+    res.render('register',{
+      loginAccount: lst[0],
+      registerLogout: lst[1]
+    });
   }
 
   // }

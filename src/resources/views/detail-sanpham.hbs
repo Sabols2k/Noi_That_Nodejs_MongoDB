@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="product-top">
-                                <h1 class="title-head">Giường ngủ gỗ chất lượng cao cho gia đình</h1>
+                                <h1 class="title-head">{{product.name}} </h1>
                                 <div class="sku-product">
                                     <div class="item-ku">
                                         SKU:
@@ -58,7 +58,7 @@
                                             <span class="a-stock">Còn hàng</span>
                                         </div>
                                         <div class="product-describe">
-                                            <p><strong> Giường ngủ gỗ chất lượng cao cho gia đình GHS-9071 </strong>khiến mọi vị khách cảm thấy hài lòng trong quá trình sử dụng. Điều thu hút khách hàng đầu tiện chính là vẻ đpẹ hiện đại, thanh lịch của mẫu giường ngủ gỗ. Cùng với đó, thiết kế nệm bọc nỉ, da cao cấp của sản phẩm cũng góp phần đem đến những trải nghiệm thoải mái, dễ chịu nhất đối với người dùng.</p>
+                                            <p><strong>{{product.name}}</strong>khiến mọi vị khách cảm thấy hài lòng trong quá trình sử dụng. Điều thu hút khách hàng đầu tiện chính là vẻ đpẹ hiện đại, thanh lịch của mẫu giường ngủ gỗ. Cùng với đó, thiết kế nệm bọc nỉ, da cao cấp của sản phẩm cũng góp phần đem đến những trải nghiệm thoải mái, dễ chịu nhất đối với người dùng.</p>
                                         </div>
                                     </div>
                                     <div class="form-product">
@@ -75,7 +75,7 @@
                                             <button type="submit" 
                                                     class="btn btn-gray btn-lg add-to-cart"
                                                     data-bs-toggle="modal" data-bs-target="#cartModal"
-                                                    onClick="cartLS.add({id: 1, name: 'Giường ngủ gỗ chất lượng cao cho gia đình', img:'giuong-ngu-go', price: 130})">
+                                                    onClick="cartLS.add({id: {{product.product_id}}, name: '{{product.name}}', img:'{{product.img}}', price: {{product.price}} })">
                                                 <span>
                                                     Mua ngay 
                                                     <b class="product-price">{{product.price}}₫</b>

@@ -1,11 +1,15 @@
 const products = require('../../models/Product');
-const {mongooseToObject} = require('../../../util/mongoose');
-const {mutipleMongooseToObject} = require('../../../util/mongoose');
+const {mongooseToObject,mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
 
 class HomeController {
 
   index(req, res, next) {
-    res.render('home');
+    var lst = checkLoginForOption(req.session)
+
+    res.render('home',{
+      loginAccount: lst[0],
+      registerLogout: lst[1]
+    });
   }
   notfoud(req, res, next){
       res.render('404notfound');

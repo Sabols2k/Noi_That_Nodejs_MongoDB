@@ -1,6 +1,6 @@
 const products = require('../../models/Product');
 const {mongooseToObject} = require('../../../util/mongoose');
-const {mutipleMongooseToObject} = require('../../../util/mongoose');
+const {mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
 
 class ProductController {
 

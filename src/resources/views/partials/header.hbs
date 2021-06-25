@@ -9,16 +9,18 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 evo-account">
                         <ul>
                             <li>
-                                <a href="/login">
+                                 {{{loginAccount}}}
+                                {{!-- <a href="/login">
                                     <i class="fas fa-sign-in-alt"></i>
                                     Đăng nhập
-                                </a>
+                                </a> --}}
                             </li>
                             <li>
-                                <a href="/register">
+                                {{!-- <a href="/register">
                                     <i class="fas fa-user-plus"></i>
                                     Đăng kí
-                                </a>
+                                </a> --}}
+                                 {{{registerLogout}}}
                             </li>
                         </ul>
                     </div>
@@ -48,7 +50,7 @@
                         <div class="input-group">
                             <input type="text" name="query" class="form-control search-auto" placeholder="Bạn muốn tìm gì?">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
+                                <button class="_btn" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </span>
@@ -312,4 +314,32 @@
             </div>
         </div>
     </header>
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+<script>
+ document.addEventListener('DOMContentLoaded',function(){
+
+
+     $('#search-form').submit(function (e) {
+         alert('aaaa');
+    e.preventDefault()
+    const query = $('#search-form input[name=query]').val()
+    $.ajax({
+        type: "GET",
+        url: `http://localhost:3000/search/${query}`,
+        contentType: 'application/json',
+        encode: true,
+    }).done(function (res) {
+        if (Array.from(res.product).length != 0) {
+            // $('.no-result').css('display', 'none')
+            console.log('no-result')
+            render(res.product)
+        } else {
+            console.log('false')
+            $('#list-products-search').html('')
+            // $('.no-result').css('display', 'block')
+        }
+    })
+})
+ }
+ </script>

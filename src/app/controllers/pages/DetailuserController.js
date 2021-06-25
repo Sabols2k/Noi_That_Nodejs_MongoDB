@@ -1,16 +1,19 @@
 const products = require('../../models/User');
 const {mongooseToObject} = require('../../../util/mongoose');
-const {mutipleMongooseToObject} = require('../../../util/mongoose');
+const {mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
 
 class DetailuserController {
 
   index(req, res, next) {
-    console.log(req.session.userid)
+    var lst = checkLoginForOption(req.session)
+    // console.log(req.session.userid)
     products
       .findById(req.session.userid)
       .then((user) =>
         res.render("account", {
           user: mongooseToObject(user),
+          loginAccount: lst[0],
+          registerLogout: lst[1]
         })
       )
       .catch(next);

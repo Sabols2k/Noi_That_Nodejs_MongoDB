@@ -72,22 +72,12 @@
                 currency: 'VND'
             })
         }
-        function render(items){
-            // console.log(items);
-        }
-        var data = [];
         function renderCartCheckout(items) {
-            
             const $cartCheckout = document.querySelector("#order-summary")
             const $totalCheckout = document.querySelector(".total")
             const $totalCheckoutPrice = document.querySelector(".total.amount")
             const $countItemsCheckout = document.querySelector(".count-item")
-            console.log(items);
-            // req.session.pricetotal=$totalCheckout
-            const formData = {
-                cartCheckout: document.querySelector("#order-summary").val()
-            }
-            console.log(formData)
+            
             $cartCheckout.innerHTML = items.map((item) => `
                 <tr>
                     <th class="product-image">
@@ -111,7 +101,6 @@
             $totalCheckout.innerHTML = format(cartLS.total())
             $totalCheckoutPrice.innerHTML = format(cartLS.total() + 40)
             $countItemsCheckout.innerHTML = '(' + cartLS.totalCount() + ' sản phẩm)'
-
         }
         renderCartCheckout(cartLS.list())
         cartLS.onChange(renderCartCheckout)
@@ -182,9 +171,8 @@
         cartMail(cartLS.list())
         console.log(bd)
             
-        function sendEmail(items) {
+        function sendEmail() {
             
-
             const name= document.querySelector('#fullname').value;
             const email= document.querySelector('#email').value;
 
@@ -204,13 +192,6 @@
                 Body: bd
 
             }).then(  
-                message => showToastSuccess(),
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/checkout/create",
-                    data: JSON.stringify(items),
-                    contentType: 'application/json',
-                    encode: true,
-                })
+                message => showToastSuccess()
             );
         }

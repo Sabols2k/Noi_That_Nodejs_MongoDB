@@ -1,7 +1,7 @@
 const products = require('../../models/Product');
 const users = require('../../models/User');
 const {mongooseToObject} = require('../../../util/mongoose');
-const {mutipleMongooseToObject} = require('../../../util/mongoose');
+const {mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 class ProductController {
@@ -37,7 +37,13 @@ class ProductController {
   }
 
   allsp(req, res, next){
-    res.render('all-sanpham')
+    var lst = checkLoginForOption(req.session)
+
+    res.render('all-sanpham',{
+      loginAccount: lst[0],
+      registerLogout: lst[1]
+    });
+    
   }
   //[GET] /courses/:slug
   show(req, res, next) {

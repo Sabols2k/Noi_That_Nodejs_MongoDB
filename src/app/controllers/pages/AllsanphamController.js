@@ -1,6 +1,6 @@
 const products = require('../../models/Product');
 const {mongooseToObject} = require('../../../util/mongoose');
-const {mutipleMongooseToObject} = require('../../../util/mongoose');
+const {mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
 
 class AllsanphamController {
 
@@ -35,11 +35,14 @@ class AllsanphamController {
   }
 
   allsp(req, res, next){
+    var lst = checkLoginForOption(req.session)
     products
       .find({})
       .then((product) =>
         res.render("all-sanpham", {
           products: mutipleMongooseToObject(product),
+          loginAccount: lst[0],
+      registerLogout: lst[1]
         })
       )
       .catch(next);

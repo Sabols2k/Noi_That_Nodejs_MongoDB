@@ -1,7 +1,7 @@
 const admins = require("../../models/Admin");
 const products = require("../../models/Product");
-const { mongooseToObject } = require("../../../util/mongoose");
-const { mutipleMongooseToObject } = require("../../../util/mongoose");
+const {mongooseToObject,mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
+
 const bcrypt = require("bcryptjs");
 
 
@@ -23,7 +23,13 @@ class AdminController {
 
   // }
   index(req, res, next) {
-    res.render("admins/dashboard",{ layout: 'admin.hbs'})
+    var lst = checkLoginForOption(req.session)
+    res.render("admins/dashboard",{
+       layout: 'admin.hbs',
+       loginAccount: lst[0],
+        registerLogout: lst[1]
+      
+      })
     // products
     //   .find({})
     //   .then((product) =>

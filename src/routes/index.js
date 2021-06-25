@@ -69,7 +69,7 @@ function route(app) {
     app.post("/uploadfile",upload.single('myFile'),uploadfileRouter);
     app.use("/login", checkNotLoggedIn, loginRouter);
     app.use("/logout", logoutRouter);
-    app.use("/register", registerRouter);
+    app.use("/register",checkNotLoggedIn, registerRouter);
     app.use("/home", homeRouter);
     app.use("/search", searchRouter);
   
