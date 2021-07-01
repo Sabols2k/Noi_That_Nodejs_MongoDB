@@ -76,16 +76,18 @@
             // console.log(items);
         }
         var data = [];
+        var total;
         function renderCartCheckout(items) {
             
             const $cartCheckout = document.querySelector("#order-summary")
             const $totalCheckout = document.querySelector(".total")
             const $totalCheckoutPrice = document.querySelector(".total.amount")
             const $countItemsCheckout = document.querySelector(".count-item")
-            console.log(items);
+            console.log($totalCheckout);
+            // console.log(items)
             // req.session.pricetotal=$totalCheckout
             const formData = {
-                cartCheckout: document.querySelector("#order-summary").val()
+                cartCheckout: $cartCheckout
             }
             console.log(formData)
             $cartCheckout.innerHTML = items.map((item) => `
@@ -93,7 +95,7 @@
                     <th class="product-image">
                         <div class="product-thumbnail">
                             <div class="product-thumbnail-wrapper">
-                                <img src="./assets/img/All-products/${item.img}.jpg" alt="">
+                                <img src="../img/All-products/${item.img}.jpg" alt="">
                             </div>
                             <span class="product-thumbnail-quantily">${item.quantity}</span>
                         </div>
@@ -109,10 +111,15 @@
                 </tr>`).join("")
 
             $totalCheckout.innerHTML = format(cartLS.total())
+            // console.log(cartLS.total())
+            total = cartLS.total();
+            console.log(total)
             $totalCheckoutPrice.innerHTML = format(cartLS.total() + 40)
             $countItemsCheckout.innerHTML = '(' + cartLS.totalCount() + ' sản phẩm)'
 
         }
+
+
         renderCartCheckout(cartLS.list())
         cartLS.onChange(renderCartCheckout)
         
@@ -183,7 +190,8 @@
         console.log(bd)
             
         function sendEmail(items) {
-            
+            console.log("sendEmail")
+            // console.log(cartLS.list())
 
             const name= document.querySelector('#fullname').value;
             const email= document.querySelector('#email').value;
@@ -204,13 +212,32 @@
                 Body: bd
 
             }).then(  
-                message => showToastSuccess(),
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:3000/checkout/create",
-                    data: JSON.stringify(items),
-                    contentType: 'application/json',
-                    encode: true,
-                })
+                message => showToastSuccess()
+                
+               
             );
+             // cartLS.add({id: 2, name: "Product 2", price: 100}, 2)
+             console.log("sendEmail")
+             const data = [];
+             data.push({totalPrice: cartLS.total()})
+             data.push(cartLS.list())
+             console.log(data)
+             $.ajax({
+                 type: "POST",
+                 url: "http://localhost:3000/checkout/create",
+                 data:  JSON.stringify(data),
+                 contentType: 'application/json',
+                 encode: true,
+             }).done(function(res){
+               
+             } )
+             cartLS.destroy();
+             window.location="http://localhost:3000/account";
+            
+
+
         }
+        sendEmail(cartLS.list())
+        
+
+       

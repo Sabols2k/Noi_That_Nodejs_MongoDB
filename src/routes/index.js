@@ -59,8 +59,8 @@ function route(app) {
     })
     app.use("/gioi-thieu", gioithieuRouter);
     app.use("/lien-he", lienheuRouter);
-    app.use("/cart", cartRouter);
-    app.use("/checkout", checkoutRouter);
+    app.use("/cart",checkLogged, cartRouter);
+    app.use("/checkout",checkLogged, checkoutRouter);
     app.use("/product", productRouter);
     app.use("/all-sanpham", allsanphamRouter);
     app.use("/detail-sanpham", detailsanphamRouter);
