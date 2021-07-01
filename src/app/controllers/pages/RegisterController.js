@@ -35,7 +35,7 @@ class RegisterController {
     //   "img":"aaaa",
     //   "role":"user"
     // };
-    data.img = ""
+    data.img = "img_avatar.png"
     data.passwordHash=bcrypt.hashSync(data.password, 10);
     const user = new users(data);
      console.log(user);

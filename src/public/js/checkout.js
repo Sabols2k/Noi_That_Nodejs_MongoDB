@@ -212,7 +212,10 @@
                 Body: bd
 
             }).then(  
-                message => showToastSuccess()
+                message => showToastSuccess().then(
+                    window.location="http://localhost:3000/account"
+                
+                )
                 
                
             );
@@ -231,8 +234,11 @@
              }).done(function(res){
                
              } )
+
              cartLS.destroy();
-             window.location="http://localhost:3000/account";
+
+
+            
             
 
 

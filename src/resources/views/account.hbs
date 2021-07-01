@@ -17,7 +17,7 @@
                     <h1 class="title-head">Thông tin tài khoản</h1>
                     <div class="form-info-account">
                         <p>
-                            <img id="avatar-image" class="change-avatar" src="../img/img_avatar.png" alt="account" 
+                            <img id="avatar-image" class="change-avatar" src="../img/users/{{user.img}}" alt="account" 
                             data-bs-toggle="modal" data-bs-target="#changeAvatarModal">
                         </p>
                         <p>
@@ -84,20 +84,23 @@
             <h5 class="modal-title" id="changeAvatarModalLabel">Change avatar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+             <form id="changeformAvatar" action="account/changeAvatar" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
-                <form>
+               
                     <div class="avatar text-center">
-                        <img src="../img/img_avatar.png" class="change-avatar">
+                        <img src="../img/users/{{user.img}}" class="change-avatar">
                     </div>
                     <div class="form-group">
                       <label for="avatar" class="col-form-label" style="font-size: 1.4rem;">Choose avatar:</label>
-                      <input type="file" class="form-control" id="avatar-name" style="padding: 10px 10px; font-size: 1.4rem;">
+                      <input type="file" name="avatar" class="form-control" id="avatar-name" style="padding: 10px 10px; font-size: 1.4rem;">
                     </div>
-                  </form>
+                 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-lg">Save changes</button>
+                <button id="changeAvatarr" name="changeAvatar" type="submit" class="btn btn-lg" >Save changes</button>
             </div>
+             </form>
         </div>
         </div>
     </div>

@@ -118,15 +118,15 @@ ul, li {
   color: var(--text-color-black); }
 
 .header .evo-header-logo-search-cart .evo-header-search button {
-  background-color: transparent;
-  color: var(--orange-color);
-  border: none;
-  position: absolute;
-  right: 6px;
-  top: -3px;
-  z-index: 3;
-  line-height: 40px;
-  font-size: 14px; }
+   background-color: transparent;
+    color: var(--orange-color);
+    border: none;
+    position: absolute;
+    right: 15px;
+    top: -1px;
+    z-index: 3;
+    line-height: 40px;
+    font-size: 14px; }
 
 .header .evo-header-logo-search-cart .evo-header-hotline-cart {
   text-align: right; }

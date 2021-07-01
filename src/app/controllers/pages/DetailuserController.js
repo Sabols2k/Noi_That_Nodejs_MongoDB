@@ -2,6 +2,8 @@ const users = require('../../models/User');
 const bill = require('../../models/Bill');
 const {mongooseToObject} = require('../../../util/mongoose');
 const {mutipleMongooseToObject,checkLoginForOption } = require('../../../util/mongoose');
+var fs = require('fs');
+const sharp = require('sharp');
 
 class DetailuserController {
 
@@ -25,10 +27,15 @@ class DetailuserController {
       .catch(next);
   }
   async changeAvatar(req, res, next) {
-    var query = { _id: req.session.userId }
-    var img_name = req.session.userId + '_200x200.jpg'
-    var path = './src/public/img/users/' + req.session.userId + '.jpg'
-    var resizedImg = './src/public/img/users/' + req.session.userId + '_200x200.jpg'
+    console.log("file")
+    console.log(req.file)
+    console.log("file1")
+    var query = { _id: req.session.userid }
+    console.log(query)
+    console.log("file2")
+    var img_name = req.session.userid + '_200x200.jpg'
+    var path = './src/public/img/users/' + req.session.userid + '.jpg'
+    var resizedImg = './src/public/img/users/' + req.session.userid + '_200x200.jpg'
 
     //rename image to userid
     fs.renameSync('./src/public/img/users/' + req.file.filename, path)
@@ -41,7 +48,7 @@ class DetailuserController {
         }
     })
 
-    const userr = await users.findOneAndUpdate(query, { $set: { avatar: req.session.userId + '.jpg' } })
+    const userr = await users.findOneAndUpdate(query, { $set: { img: req.session.userid + '.jpg' } })
     userr.save()
 
     // res.send({ status: true, image: img_name })
