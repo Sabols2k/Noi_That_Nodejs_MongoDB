@@ -187,7 +187,7 @@
                 
         }
         cartMail(cartLS.list())
-        console.log(bd)
+        // console.log(bd)
             
         function sendEmail(items) {
             console.log("sendEmail")

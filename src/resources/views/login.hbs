@@ -28,7 +28,7 @@
                     <div class="line-break">
                         <span>hoặc</span>
                     </div>
-                    <form method="POST" action="/login" class="form" >
+                    <form id="form-2" method="POST" action="/login" class="form" >
                         <div class="form-group">
                             <label for="email" class="form-label">Email*</label>
                             <input id="email" name="email" type="text" class="form-control" placeholder="Nhập Địa Chỉ Email">
@@ -67,11 +67,12 @@
                 Validator.isRequired('#password'),
                 Validator.minLength('#password', 5),
             ],
-            onSubmit: (data) => {
-                console.log(data)
-            }
+            //onSubmit: (data) => {
+             //   console.log(data)
+            //}
         })
+
+    
+
     })
     </script>
-</body>
-</html> 
