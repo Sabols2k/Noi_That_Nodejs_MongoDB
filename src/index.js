@@ -9,6 +9,8 @@ const handlebars = require("express-handlebars");
 const morgan = require("morgan");
 const app = express();
 
+var argv = require('minimist')(process.argv.slice(2));
+var swagger = require("swagger-node-express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -20,6 +22,9 @@ const route = require("./routes");
 const db = require("./config/db"); //database mongodb
 
 const axios = require("axios");
+
+
+
 
 // var MongoStore = require('connect-mongo')(session);
 
@@ -138,6 +143,43 @@ app.engine(
 // }
 
 // // setInterval(intervalFunc, 2000);
+
+
+
+//api 
+var subpath = express();
+app.use(bodyParser());
+app.use("/api", subpath);
+swagger.setAppHandler(subpath);
+
+
+subpath.use(express.static(path.join(__dirname, "dist")));
+
+swagger.setApiInfo({
+  title: "example API",
+  description: "API to do something, manage something...",
+  termsOfServiceUrl: "",
+  contact: "yourname@something.com",
+  license: "",
+  licenseUrl: ""
+});
+
+subpath.get('/', function (req, res) {
+  res.sendfile(__dirname + '/dist/index.html');
+});
+
+swagger.configureSwaggerPaths('', 'api-docs', '');
+
+var domain = 'localhost';
+if(argv.domain !== undefined)
+    domain = argv.domain;
+else
+    console.log('No --domain=xxx specified, taking default hostname "localhost".');
+var applicationUrl = 'http://' + domain;
+swagger.configure(applicationUrl, '1.0.0');
+
+///////////
+
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views")); // chỉnh sửa thư mục Views để render như ý muốn của mình
